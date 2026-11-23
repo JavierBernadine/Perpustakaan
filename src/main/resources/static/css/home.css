@@ -1,0 +1,278 @@
+.beranda-perpustakaan {
+  display: flex;
+  flex-direction: column;
+  height: 700px;
+  align-items: flex-start;
+  position: relative;
+  background-color: #112b48;
+  overflow: hidden;
+}
+
+.beranda-perpustakaan .foto-perpustakaan {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1280px;
+  height: 700px;
+  object-fit: cover;
+}
+
+.beranda-perpustakaan .lapisan-kontras {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1280px;
+  height: 810px;
+  background: linear-gradient(
+    90deg,
+    rgba(12, 23, 36, 0.79) 0%,
+    rgba(12, 23, 36, 0.62) 39%,
+    rgba(12, 23, 36, 0.13) 70%,
+    rgba(12, 23, 36, 0) 100%
+  );
+}
+
+.beranda-perpustakaan .identitas-dan-login {
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  height: 132px;
+}
+
+.beranda-perpustakaan .identitas {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  position: absolute;
+  top: 46px;
+  left: 80px;
+}
+
+.beranda-perpustakaan .book-open {
+  position: relative;
+  width: 48px;
+  height: 42px;
+}
+
+.beranda-perpustakaan .nama-dan-semboyan {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.beranda-perpustakaan .nama-perpustakaan {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  font-family: "Inter", Helvetica;
+  font-weight: 600;
+  color: #f0fafc;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.beranda-perpustakaan .semboyan {
+  position: relative;
+  width: fit-content;
+  font-family: "Inter", Helvetica;
+  font-weight: 400;
+  color: #f0fafc;
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.beranda-perpustakaan .login {
+  display: flex;
+  width: 156px;
+  height: 58px;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 37px;
+  left: 1098px;
+  background-color: var(--ac-7f-5e, #f0fafc);
+  border-radius: 999px;
+  overflow: hidden;
+  border: 0px none;
+}
+
+.beranda-perpustakaan .label {
+  position: relative;
+  flex: 1;
+  font-family: "Inter", Helvetica;
+  font-weight: 700;
+  color: #112b48;
+  font-size: 24px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.beranda-perpustakaan .selamat-datang {
+  display: flex;
+  flex-direction: column;
+  height: 678px;
+  align-items: flex-start;
+  padding: 100px 80px 0px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+}
+
+.beranda-perpustakaan .pesan-pembuka {
+  display: flex;
+  flex-direction: column;
+  width: 760px;
+  align-items: flex-start;
+  gap: 4px;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.beranda-perpustakaan .salam {
+  position: relative;
+  align-self: stretch;
+  margin-top: -1px;
+  font-family: "Inter", Helvetica;
+  font-weight: 400;
+  color: #f0fafc;
+  font-size: 48px;
+  letter-spacing: -0.72px;
+  line-height: 53.8px;
+}
+
+.beranda-perpustakaan .judul-utama {
+  font-weight: 700;
+  font-size: 62px;
+  letter-spacing: -0.87px;
+  line-height: 68.2px;
+  position: relative;
+  align-self: stretch;
+  font-family: "Inter", Helvetica;
+  color: #f0fafc;
+}
+
+.beranda-perpustakaan .ajakan-penelusuran {
+  display: flex;
+  flex-direction: column;
+  width: 570px;
+  align-items: flex-start;
+  padding: 16px 0px 0px;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.beranda-perpustakaan .deskripsi {
+  position: relative;
+  align-self: stretch;
+  margin-top: -1px;
+  font-family: "Inter", Helvetica;
+  font-weight: 400;
+  color: #f0fafc;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: 26px;
+}
+
+.beranda-perpustakaan .keunggulan {
+  display: inline-flex;
+  gap: 30px;
+  padding: 42px 0px 0px;
+  flex: 0 0 auto;
+  align-items: flex-start;
+  position: relative;
+}
+
+.beranda-perpustakaan .butir-keunggulan {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 2px;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.beranda-perpustakaan .div {
+  display: flex;
+  flex-direction: column;
+  width: 122px;
+  align-items: flex-start;
+  gap: 10px;
+  position: relative;
+}
+
+.beranda-perpustakaan .img {
+  position: relative;
+  width: 29px;
+  height: 28px;
+}
+
+.beranda-perpustakaan .keterangan {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  flex: 0 0 auto;
+}
+
+.beranda-perpustakaan .judul-keunggulan {
+  margin-top: -1px;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: relative;
+  align-self: stretch;
+  font-family: "Inter", Helvetica;
+  color: #f0fafc;
+}
+
+.beranda-perpustakaan .deskripsi-keunggulan {
+  position: relative;
+  align-self: stretch;
+  font-family: "Inter", Helvetica;
+  font-weight: 400;
+  color: #f0fafc;
+  font-size: 11px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.beranda-perpustakaan .pemisah {
+  position: relative;
+  width: 1px;
+  height: 75px;
+  background-color: #ffffff70;
+}
+
+.beranda-perpustakaan .keunggulan-2 {
+  display: flex;
+  flex-direction: column;
+  width: 117px;
+  align-items: flex-start;
+  gap: 10px;
+  position: relative;
+}
+
+.beranda-perpustakaan .keunggulan-3 {
+  display: flex;
+  flex-direction: column;
+  width: 125px;
+  align-items: flex-start;
+  gap: 10px;
+  position: relative;
+}
+
+.beranda-perpustakaan .butir-keunggulan-2 {
+  position: relative;
+  width: 135px;
+  height: 74px;
+}
