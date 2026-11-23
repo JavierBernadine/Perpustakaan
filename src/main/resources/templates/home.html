@@ -1,32 +1,84 @@
-<html>
+<!DOCTYPE html>
+<html lang="id">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<meta charset="utf-8" />
-<link rel="stylesheet" href="globals.css">
-<link rel="stylesheet" href="styleguide.css">
-<link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <title>Beranda Perpustakaan Universitas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="globals.css" />
+  <link rel="stylesheet" href="styleguide.css" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<div class="beranda-perpustakaan" data-model-id="336:170"><img class="foto-perpustakaan" src="https://c.animaapp.com/4GXBSWZB/img/foto-perpustakaan.png" />
-<div class="lapisan-kontras" ></div>
-<div class="identitas-dan-login" ><div class="identitas" ><img class="book-open" src="https://c.animaapp.com/4GXBSWZB/img/book-open.svg" />
-<div class="nama-dan-semboyan" ><div class="nama-perpustakaan" >Perpustakaan Universitas</div>
-<p class="semboyan" >Ilmu Hari Ini, Masa Depan Nanti</p></div></div>
-<div class="login" ><div class="label" >Login</div></div></div>
-<div class="selamat-datang" ><div class="pesan-pembuka" ><div class="salam" >Selamat Datang di</div>
-<div class="judul-utama" >Perpustakaan</div></div>
-<div class="ajakan-penelusuran" ><p class="deskripsi" >Temukan buku, jelajahi pengetahuan,<br/>dan wujudkan masa depan yang lebih baik.</p></div></div>
-<div class="keunggulan" ><div class="butir-keunggulan" ><div class="div" ><img class="img" src="https://c.animaapp.com/4GXBSWZB/img/book-open-1.svg" /></div>
-<div class="keterangan" ><div class="judul-keunggulan" >Koleksi Lengkap</div>
-<div class="deskripsi-keunggulan" >Buku, jurnal, e-book</div></div></div>
-<div class="pemisah" ></div>
-<div class="butir-keunggulan" ><div class="keunggulan-2" ><img class="img" src="https://c.animaapp.com/4GXBSWZB/img/clock.svg" /></div>
-<div class="keterangan" ><div class="judul-keunggulan" >Akses Mudah</div>
-<div class="deskripsi-keunggulan" >Online &amp; Offline</div></div></div>
-<div class="pemisah" ></div>
-<div class="butir-keunggulan" ><div class="keunggulan-3" ><img class="img" src="https://c.animaapp.com/4GXBSWZB/img/user-round.svg" /></div>
-<div class="keterangan" ><div class="judul-keunggulan" >Ramah Pengguna</div>
-<div class="deskripsi-keunggulan" >Untuk seluruh civitas</div></div></div>
-<div class="butir-keunggulan-2" ></div></div></div>
+  <div class="beranda-perpustakaan" data-model-id="336:170">
+    <img class="foto-perpustakaan" src="https://c.animaapp.com/4GXBSWZB/img/foto-perpustakaan.png" alt="Foto ruang perpustakaan universitas" />
+    <div class="lapisan-kontras" aria-hidden="true"></div>
+
+    <header class="identitas-dan-login">
+      <div class="identitas">
+        <img class="book-open" src="https://c.animaapp.com/4GXBSWZB/img/book-open.svg" alt="Ikon buku terbuka" />
+        <div class="nama-dan-semboyan">
+          <div class="nama-perpustakaan">Perpustakaan Universitas</div>
+          <p class="semboyan">Ilmu Hari Ini, Masa Depan Nanti</p>
+        </div>
+      </div>
+
+      <button type="button" class="login">
+        <span class="label">Login</span>
+      </button>
+    </header>
+
+    <main class="selamat-datang">
+      <div class="pesan-pembuka">
+        <div class="salam">Selamat Datang di</div>
+        <h1 class="judul-utama">Perpustakaan</h1>
+      </div>
+
+      <div class="ajakan-penelusuran">
+        <p class="deskripsi">
+          Temukan buku, jelajahi pengetahuan,<br />
+          dan wujudkan masa depan yang lebih baik.
+        </p>
+      </div>
+
+      <section class="keunggulan" aria-label="Keunggulan perpustakaan">
+        <div class="butir-keunggulan">
+          <div class="ikon-box">
+            <img class="img" src="https://c.animaapp.com/4GXBSWZB/img/book-open-1.svg" alt="" />
+          </div>
+          <div class="keterangan">
+            <div class="judul-keunggulan">Koleksi Lengkap</div>
+            <div class="deskripsi-keunggulan">Buku, jurnal, e-book</div>
+          </div>
+        </div>
+
+        <div class="pemisah" aria-hidden="true"></div>
+
+        <div class="butir-keunggulan">
+          <div class="ikon-box">
+            <img class="img" src="https://c.animaapp.com/4GXBSWZB/img/clock.svg" alt="" />
+          </div>
+          <div class="keterangan">
+            <div class="judul-keunggulan">Akses Mudah</div>
+            <div class="deskripsi-keunggulan">Online &amp; Offline</div>
+          </div>
+        </div>
+
+        <div class="pemisah" aria-hidden="true"></div>
+
+        <div class="butir-keunggulan">
+          <div class="ikon-box">
+            <img class="img" src="https://c.animaapp.com/4GXBSWZB/img/user-round.svg" alt="" />
+          </div>
+          <div class="keterangan">
+            <div class="judul-keunggulan">Ramah Pengguna</div>
+            <div class="deskripsi-keunggulan">Untuk seluruh civitas</div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
 </body>
 </html>
