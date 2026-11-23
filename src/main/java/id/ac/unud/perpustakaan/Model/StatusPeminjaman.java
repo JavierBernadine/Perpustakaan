@@ -1,5 +1,20 @@
 package id.ac.unud.perpustakaan.Model;
 
-public class StatusPeminjaman {
+public enum StatusPeminjaman {
+    DIAJUKAN("Diajukan"),
+    DITOLAK("Ditolak"),
+    DISETUJUI("Disetujui"),
+    DIKEMBALIKAN("Dikembalikan");
+
+    private final String label;
+
+    StatusPeminjaman(String label) {
+        this.label = label ;
+    } 
+
+    public String getLabel(){
+        return label;
+    }
+
     
 }
