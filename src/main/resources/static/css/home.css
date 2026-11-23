@@ -30,14 +30,14 @@
     rgba(12, 23, 36, 0.13) 70%,
     rgba(12, 23, 36, 0) 100%
   );
-}[cite: 5]
+}
 
 .beranda-perpustakaan .identitas-dan-login {
   position: relative;
   align-self: stretch;
   width: 100%;
   height: 132px;
-}[cite: 5]
+}
 
 .beranda-perpustakaan .identitas {
   display: inline-flex;
@@ -46,13 +46,13 @@
   position: absolute;
   top: 46px;
   left: 80px;
-}[cite: 5]
+}
 
 .beranda-perpustakaan .book-open {
   position: relative;
   width: 48px;
   height: 42px;
-}[cite: 5]
+}
 
 .beranda-perpustakaan .nama-dan-semboyan {
   display: inline-flex;
@@ -61,7 +61,7 @@
   gap: 5px;
   position: relative;
   flex: 0 0 auto;
-}[cite: 5]
+}
 
 .beranda-perpustakaan .nama-perpustakaan {
   position: relative;
@@ -73,7 +73,7 @@
   font-size: 14px;
   letter-spacing: 0;
   line-height: normal;
-}[cite: 5]
+}
 
 .beranda-perpustakaan .semboyan {
   position: relative;
@@ -84,7 +84,7 @@
   font-size: 12px;
   letter-spacing: 0;
   line-height: normal;
-}[cite: 5]
+}
 
 .beranda-perpustakaan .login {
   display: flex;
@@ -96,11 +96,11 @@
   position: absolute;
   top: 37px;
   left: 1098px;
-  background-color: var(--ac-7f-5e);
+  background-color: var(--ac-7f-5e, #f0fafc);
   border-radius: 999px;
   overflow: hidden;
   border: 0px none;
-}[cite: 5]
+}
 
 .beranda-perpustakaan .label {
   position: relative;
@@ -112,7 +112,7 @@
   text-align: center;
   letter-spacing: 0;
   line-height: normal;
-}[cite: 5]
+}
 
 .beranda-perpustakaan .selamat-datang {
   display: flex;
@@ -123,7 +123,7 @@
   position: relative;
   align-self: stretch;
   width: 100%;
-}[cite: 5]
+}
 
 .beranda-perpustakaan .pesan-pembuka {
   display: flex;
@@ -133,7 +133,7 @@
   gap: 4px;
   position: relative;
   flex: 0 0 auto;
-}[cite: 5]
+}
 
 .beranda-perpustakaan .salam {
   position: relative;
@@ -145,7 +145,7 @@
   font-size: 48px;
   letter-spacing: -0.72px;
   line-height: 53.8px;
-}[cite: 6]
+}
 
 .beranda-perpustakaan .judul-utama {
   font-weight: 700;
@@ -156,7 +156,7 @@
   align-self: stretch;
   font-family: "Inter", Helvetica;
   color: #f0fafc;
-}[cite: 6]
+}
 
 .beranda-perpustakaan .ajakan-penelusuran {
   display: flex;
@@ -166,7 +166,7 @@
   padding: 16px 0px 0px;
   position: relative;
   flex: 0 0 auto;
-}[cite: 6]
+}
 
 .beranda-perpustakaan .deskripsi {
   position: relative;
@@ -178,7 +178,7 @@
   font-size: 20px;
   letter-spacing: 0;
   line-height: 26px;
-}[cite: 6]
+}
 
 .beranda-perpustakaan .keunggulan {
   display: inline-flex;
@@ -187,7 +187,7 @@
   flex: 0 0 auto;
   align-items: flex-start;
   position: relative;
-}[cite: 6]
+}
 
 .beranda-perpustakaan .butir-keunggulan {
   display: inline-flex;
@@ -195,7 +195,7 @@
   gap: 2px;
   position: relative;
   flex: 0 0 auto;
-}[cite: 6]
+}
 
 .beranda-perpustakaan .div {
   display: flex;
@@ -204,13 +204,13 @@
   align-items: flex-start;
   gap: 10px;
   position: relative;
-}[cite: 6]
+}
 
 .beranda-perpustakaan .img {
   position: relative;
   width: 29px;
   height: 28px;
-}[cite: 6]
+}
 
 .beranda-perpustakaan .keterangan {
   display: flex;
@@ -221,7 +221,7 @@
   align-self: stretch;
   width: 100%;
   flex: 0 0 auto;
-}[cite: 6]
+}
 
 .beranda-perpustakaan .judul-keunggulan {
   margin-top: -1px;
@@ -233,7 +233,7 @@
   align-self: stretch;
   font-family: "Inter", Helvetica;
   color: #f0fafc;
-}[cite: 6]
+}
 
 .beranda-perpustakaan .deskripsi-keunggulan {
   position: relative;
@@ -244,14 +244,14 @@
   font-size: 11px;
   letter-spacing: 0;
   line-height: normal;
-}[cite: 6]
+}
 
 .beranda-perpustakaan .pemisah {
   position: relative;
   width: 1px;
   height: 75px;
   background-color: #ffffff70;
-}[cite: 6]
+}
 
 .beranda-perpustakaan .keunggulan-2 {
   display: flex;
@@ -260,7 +260,7 @@
   align-items: flex-start;
   gap: 10px;
   position: relative;
-}[cite: 6]
+}
 
 .beranda-perpustakaan .keunggulan-3 {
   display: flex;
@@ -269,10 +269,10 @@
   align-items: flex-start;
   gap: 10px;
   position: relative;
-}[cite: 6]
+}
 
 .beranda-perpustakaan .butir-keunggulan-2 {
   position: relative;
   width: 135px;
   height: 74px;
-}[cite: 6]
+}
