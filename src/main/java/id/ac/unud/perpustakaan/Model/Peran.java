@@ -1,5 +1,6 @@
 package id.ac.unud.perpustakaan.Model;
 
-public class Peran {
-    
+public enum Peran {
+    ADMIN,
+    MAHASISWA
 }
