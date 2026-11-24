@@ -4,7 +4,8 @@ public enum StatusPeminjaman {
     DIAJUKAN("Diajukan"),
     DITOLAK("Ditolak"),
     DISETUJUI("Disetujui"),
-    DIKEMBALIKAN("Dikembalikan");
+    DIKEMBALIKAN("Dikembalikan"),
+    DIPINJAM("DIPINJAM");
 
     private final String label;
 
