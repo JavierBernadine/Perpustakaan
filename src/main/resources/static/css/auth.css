@@ -12,7 +12,7 @@
   min-height: 100vh;
   position: relative;
   background-color: #1a202c;
-  background-image: linear-gradient(to right, rgba(15, 23, 42, 0.75) 0%, rgba(15, 23, 42, 0.45) 50%, rgba(15, 23, 42, 0.2) 100%), url('C:\Users\Hello\OneDrive\Documents\project rpl\Perpustakaan\src\main\resources\static\img\Gemini_Generated_Image_1fpnda1fpnda1fpn.jpg');
+  background-image: linear-gradient(to right, rgba(15, 23, 42, 0.75) 0%, rgba(15, 23, 42, 0.45) 50%, rgba(15, 23, 42, 0.2) 100%), url('../img/Gemini_Generated_Image_1fpnda1fpnda1fpn.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
