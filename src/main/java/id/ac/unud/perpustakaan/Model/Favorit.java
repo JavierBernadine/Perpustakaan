@@ -7,7 +7,6 @@ import jakarta.persistence.*;
 @Table( name= "favorit", uniqueConstraints= @UniqueConstraint(columnNames = {"pengguna_id", "buku_id"}))
 
 public class Favorit{
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

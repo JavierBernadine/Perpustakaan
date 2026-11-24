@@ -35,7 +35,6 @@ public class Peminjaman {
     @Column(nullable = false, length = 15)
     private StatusPeminjaman status = StatusPeminjaman.DIAJUKAN;
 
-    /** Bernilai true bila buku masih dipinjam dan sudah melewati jatuh tempo. */
     public boolean isTerlambat() {
         return status == StatusPeminjaman.DIPINJAM
                 && tanggalJatuhTempo != null
