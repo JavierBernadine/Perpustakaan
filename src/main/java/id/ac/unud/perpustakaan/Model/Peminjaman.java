@@ -9,26 +9,26 @@ import jakarta.persistence.Id;
 public class Peminjaman {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private Long penggunaId;
-    private Long bukuId;
+    private long id;
+    private long penggunaId;
+    private long bukuId;
     private String tanggalPengajuan;
     private String tanggalPinjam;
     private String tanggalJatuhTempo;
     private String tanggalKembali;
     private StatusPeminjaman status;
 
-    public Long getId() {return id;}
+    public long getId() {return id;}
 
-    public void setId(Long id) {this.id = id;}
+    public void setId(long id) {this.id = id;}
 
-    public Long getPenggunaId() {return penggunaId;}
+    public long getPenggunaId() {return penggunaId;}
 
-    public void setPenggunaId(Long penggunaId) {this.penggunaId = penggunaId;}
+    public void setPenggunaId(long penggunaId) {this.penggunaId = penggunaId;}
 
-    public Long getBukuId() {return bukuId;}
+    public long getBukuId() {return bukuId;}
 
-    public void setBukuId(Long bukuId) {this.bukuId = bukuId;}
+    public void setBukuId(long bukuId) {this.bukuId = bukuId;}
 
     public String getTanggalPengajuan() {return tanggalPengajuan;}
 
