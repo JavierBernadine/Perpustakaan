@@ -11,7 +11,7 @@ public class Pengguna {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
- 
+    /** Username untuk Admin, atau NIM untuk Mahasiswa. */
     @Column(nullable = false, unique = true, length = 30)
     private String username;
 
