@@ -1,13 +1,7 @@
 package id.ac.unud.perpustakaan.Model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
-import jakarta.persistence.UniqueConstraint;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
 
 @Entity 
 @Table( name= "favorit", uniqueConstraints= @UniqueConstraint(columnNames = {"pengguna_id", "buku_id"}))

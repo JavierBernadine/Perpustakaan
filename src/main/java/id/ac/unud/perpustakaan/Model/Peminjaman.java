@@ -1,52 +1,68 @@
 package id.ac.unud.perpustakaan.Model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import java.time.LocalDate;
 
 @Entity
+@Table(name = "peminjaman")
 public class Peminjaman {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-    private long penggunaId;
-    private long bukuId;
-    private String tanggalPengajuan;
-    private String tanggalPinjam;
-    private String tanggalJatuhTempo;
-    private String tanggalKembali;
-    private StatusPeminjaman status;
+    private Long id;
 
-    public long getId() {return id;}
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "pengguna_id", nullable = false)
+    private Pengguna anggota;
 
-    public void setId(long id) {this.id = id;}
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "buku_id", nullable = false)
+    private Buku buku;
 
-    public long getPenggunaId() {return penggunaId;}
+    @Column(name = "tanggal_pengajuan", nullable = false)
+    private LocalDate tanggalPengajuan;
 
-    public void setPenggunaId(long penggunaId) {this.penggunaId = penggunaId;}
+    @Column(name = "tanggal_pinjam")
+    private LocalDate tanggalPinjam;
 
-    public long getBukuId() {return bukuId;}
+    @Column(name = "tanggal_jatuh_tempo")
+    private LocalDate tanggalJatuhTempo;
 
-    public void setBukuId(long bukuId) {this.bukuId = bukuId;}
+    @Column(name = "tanggal_kembali")
+    private LocalDate tanggalKembali;
 
-    public String getTanggalPengajuan() {return tanggalPengajuan;}
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false, length = 15)
+    private StatusPeminjaman status = StatusPeminjaman.DIAJUKAN;
 
-    public void setTanggalPengajuan(String tanggalPengajuan) {this.tanggalPengajuan = tanggalPengajuan;}
+    /** Bernilai true bila buku masih dipinjam dan sudah melewati jatuh tempo. */
+    public boolean isTerlambat() {
+        return status == StatusPeminjaman.DIPINJAM
+                && tanggalJatuhTempo != null
+                && LocalDate.now().isAfter(tanggalJatuhTempo);
+    }
 
-    public String getTanggalPinjam() {return tanggalPinjam;}
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
 
-    public void setTanggalPinjam(String tanggalPinjam) {this.tanggalPinjam = tanggalPinjam;}
+    public Pengguna getAnggota() { return anggota; }
+    public void setAnggota(Pengguna anggota) { this.anggota = anggota; }
 
-    public String getTanggalJatuhTempo() {return tanggalJatuhTempo;}
+    public Buku getBuku() { return buku; }
+    public void setBuku(Buku buku) { this.buku = buku; }
 
-    public void setTanggalJatuhTempo(String tanggalJatuhTempo) {this.tanggalJatuhTempo = tanggalJatuhTempo;}
+    public LocalDate getTanggalPengajuan() { return tanggalPengajuan; }
+    public void setTanggalPengajuan(LocalDate tanggalPengajuan) { this.tanggalPengajuan = tanggalPengajuan; }
 
-    public String getTanggalKembali() {return tanggalKembali;}
+    public LocalDate getTanggalPinjam() { return tanggalPinjam; }
+    public void setTanggalPinjam(LocalDate tanggalPinjam) { this.tanggalPinjam = tanggalPinjam; }
 
-    public void setTanggalKembali(String tanggalKembali) {this.tanggalKembali = tanggalKembali;}
+    public LocalDate getTanggalJatuhTempo() { return tanggalJatuhTempo; }
+    public void setTanggalJatuhTempo(LocalDate tanggalJatuhTempo) { this.tanggalJatuhTempo = tanggalJatuhTempo; }
 
-    public StatusPeminjaman getStatus() {return status;}
+    public LocalDate getTanggalKembali() { return tanggalKembali; }
+    public void setTanggalKembali(LocalDate tanggalKembali) { this.tanggalKembali = tanggalKembali; }
 
-    public void setStatus(StatusPeminjaman status) {this.status = status;}
+    public StatusPeminjaman getStatus() { return status; }
+    public void setStatus(StatusPeminjaman status) { this.status = status; }
 }
