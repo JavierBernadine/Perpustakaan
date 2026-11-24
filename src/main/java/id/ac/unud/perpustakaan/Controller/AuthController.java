@@ -8,15 +8,12 @@ public class AuthController {
 
     @GetMapping("/")
     public String home() {
-        return "home";
+        return "index";
     }
 
-    @GetMapping ("/login")
+    @GetMapping ("/login1")
     public String login(){
         return "login";
     }
 
-
-    
-    
 }
