@@ -1,0 +1,592 @@
+/* ==========================================================================
+   DASHBOARD CSS STYLESHEET
+   Mahasiswa & Admin Modules, Interactive Components, Cards & Tables
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. MAHASISWA DASHBOARD GRID
+   -------------------------------------------------------------------------- */
+.dashboard-grid-2col {
+  display: grid;
+  grid-template-columns: 1.6fr 1.1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+/* Book List Container */
+.book-cards-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Individual Book Item Card */
+.book-item-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  border-radius: 12px;
+  background-color: #f7faff;
+  border: 1px solid #d4e3fc;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.book-item-card:hover {
+  box-shadow: 0 4px 12px rgba(29, 104, 216, 0.08);
+}
+
+.book-item-card.status-due-soon {
+  background-color: #f6f9ff;
+  border-color: #bfdbfe;
+}
+
+.book-item-card.status-safe {
+  background-color: #ffffff;
+  border-color: #e2e8f0;
+}
+
+.book-item-card.status-danger {
+  background-color: #fff1f2;
+  border-color: #fecdd3;
+}
+
+.book-item-card.status-warning {
+  background-color: #fffbeb;
+  border-color: #fef3c7;
+}
+
+.book-card-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.book-thumbnail-wrap {
+  width: 48px;
+  height: 68px;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+  flex-shrink: 0;
+  background-color: #e2e8f0;
+}
+
+.book-thumbnail-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.book-info-texts {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.book-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.book-author {
+  font-size: 12px;
+  color: #64748b;
+}
+
+.book-dates {
+  font-size: 11px;
+  color: #64748b;
+  margin-top: 4px;
+}
+
+.book-dates span.kembali-highlight {
+  font-weight: 600;
+  color: #b45309;
+}
+
+.book-card-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 68px;
+}
+
+/* Status Badges */
+.status-pill {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 20px;
+  display: inline-block;
+}
+
+.status-pill.pill-amber {
+  background-color: #fed7aa;
+  color: #9a3412;
+}
+
+.status-pill.pill-green {
+  background-color: #bbf7d0;
+  color: #166534;
+}
+
+.status-pill.pill-red {
+  background-color: #fecaca;
+  color: #991b1b;
+}
+
+.status-pill.pill-pink-rate {
+  background-color: #fecdd3;
+  color: #9f1239;
+  font-size: 12px;
+  padding: 4px 14px;
+}
+
+.book-action-btns {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-detail {
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: #334155;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 6px;
+  transition: all 0.15s;
+}
+
+.btn-detail:hover {
+  background-color: #f1f5f9;
+}
+
+.btn-action-primary {
+  background-color: var(--primary-blue);
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 14px;
+  border-radius: 6px;
+  transition: all 0.15s;
+}
+
+.btn-action-primary:hover {
+  background-color: var(--primary-blue-hover);
+}
+
+/* --------------------------------------------------------------------------
+   2. REKOMENDASI & AKTIVITAS WIDGETS
+   -------------------------------------------------------------------------- */
+.recommend-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.recommend-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid #edf2f7;
+  background-color: #ffffff;
+  transition: all 0.15s;
+}
+
+.recommend-item:hover {
+  border-color: #cbd5e1;
+  background-color: #f8fafc;
+}
+
+.recommend-item-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn-bookmark {
+  background: none;
+  border: none;
+  color: var(--primary-blue);
+  padding: 6px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.btn-bookmark svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  stroke-width: 2;
+  fill: none;
+}
+
+.btn-bookmark.bookmarked svg {
+  fill: var(--primary-blue);
+}
+
+.btn-bookmark:hover {
+  background-color: #eff6ff;
+}
+
+/* Activity Items */
+.activity-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.activity-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 0;
+}
+
+.activity-row-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.activity-icon-badge {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.activity-icon-badge svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  stroke-width: 2;
+  fill: none;
+}
+
+.activity-icon-badge.icon-check {
+  background-color: #dcfce7;
+  color: #16a34a;
+}
+
+.activity-icon-badge.icon-favorite {
+  background-color: #eff6ff;
+  color: #2563eb;
+}
+
+.activity-icon-badge.icon-return {
+  background-color: #f3e8ff;
+  color: #9333ea;
+}
+
+.activity-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.activity-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.activity-desc {
+  font-size: 11px;
+  color: #64748b;
+}
+
+.activity-time {
+  font-size: 12px;
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+/* --------------------------------------------------------------------------
+   3. CATALOG & KERANJANG (MAHASISWA)
+   -------------------------------------------------------------------------- */
+.catalog-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.catalog-item-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 16px 20px;
+  transition: all 0.2s;
+}
+
+.catalog-item-card:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+}
+
+.catalog-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* --------------------------------------------------------------------------
+   4. DENDA (MAHASISWA)
+   -------------------------------------------------------------------------- */
+.denda-card-box {
+  background-color: #fff1f2;
+  border: 1.5px solid #f43f5e;
+  border-radius: 12px;
+  padding: 16px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.denda-card-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.btn-total-fee-pill {
+  background-color: var(--primary-blue);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 7px 18px;
+  border-radius: 6px;
+  letter-spacing: 0.2px;
+}
+
+.denda-summary-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+  margin-top: 24px;
+  padding-top: 14px;
+}
+
+.total-denda-pill {
+  background-color: #fee2e2;
+  color: #b91c1c;
+  font-size: 15px;
+  font-weight: 800;
+  padding: 8px 24px;
+  border-radius: 30px;
+  letter-spacing: 0.5px;
+}
+
+.btn-pay-denda {
+  background-color: var(--primary-green);
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 10px 28px;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.btn-pay-denda:hover {
+  background-color: var(--primary-green-hover);
+  transform: translateY(-1px);
+}
+
+/* --------------------------------------------------------------------------
+   5. ADMIN DATA TABLES
+   -------------------------------------------------------------------------- */
+.table-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.table-toolbar-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.table-toolbar-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.select-filter {
+  background-color: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-size: 13px;
+  color: #334155;
+  cursor: pointer;
+}
+
+.select-filter:focus {
+  border-color: var(--primary-blue);
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.custom-data-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 13px;
+}
+
+.custom-data-table thead tr {
+  background-color: #f1f5f9;
+  color: #1e293b;
+  font-weight: 700;
+}
+
+.custom-data-table th {
+  padding: 12px 16px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.custom-data-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid #f1f5f9;
+  color: #334155;
+  vertical-align: middle;
+}
+
+.custom-data-table tbody tr:hover {
+  background-color: #f8fafc;
+}
+
+/* Skeleton Placeholder Bar */
+.skeleton-bar {
+  display: block;
+  height: 14px;
+  background: #e2e8f0;
+  border-radius: 6px;
+  width: 90%;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}
+
+/* Pagination Controls */
+.pagination-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+  margin-top: 18px;
+}
+
+.btn-page-ctrl {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: #334155;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.btn-page-ctrl:hover {
+  background-color: #f1f5f9;
+  border-color: #94a3b8;
+}
+
+.btn-page-ctrl.active-page {
+  background-color: #1e293b;
+  color: #ffffff;
+  border-color: #1e293b;
+}
+
+/* --------------------------------------------------------------------------
+   6. SIGNATURE POPUP MODAL (ADMIN PEMINJAMAN POP UP)
+   -------------------------------------------------------------------------- */
+.signature-canvas-container {
+  border: 2px dashed #94a3b8;
+  border-radius: 14px;
+  background-color: #f8fafc;
+  width: 100%;
+  height: 260px;
+  margin: 20px 0;
+  position: relative;
+  overflow: hidden;
+  cursor: crosshair;
+}
+
+.signature-canvas-container canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.signature-prompt-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #94a3b8;
+  font-size: 14px;
+  font-weight: 500;
+  pointer-events: none;
+  user-select: none;
+}
+
+.signature-actions-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.btn-clear-sig {
+  background: none;
+  border: 1px solid #cbd5e1;
+  color: #64748b;
+  font-size: 13px;
+  padding: 7px 16px;
+  border-radius: 6px;
+}
+
+.btn-clear-sig:hover {
+  background-color: #f1f5f9;
+  color: #0f172a;
+}
