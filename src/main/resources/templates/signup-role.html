@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up Sebagai - Perpustakaan Universitas</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/auth.css">
+  <link rel="stylesheet" href="css/prototype-bar.css">
+</head>
+<body class="auth-page">
+
+  <div class="auth-card-container" style="max-width: 820px; text-align: center;">
+    
+    <!-- Title with mini book illustration -->
+    <div style="display: flex; align-items: center; justify-content: center; gap: 16px; margin-bottom: 24px;">
+      <h1 class="auth-title" style="margin-bottom: 0;">Sign Up Sebagai</h1>
+      <img src="assets/images/signup-illustration.png" alt="Books Illustration" style="height: 58px; object-fit: contain;">
+    </div>
+
+    <!-- Role Buttons -->
+    <div class="role-choice-row">
+      <div id="roleBtnAdmin" class="role-btn-card" onclick="selectRole('admin')">
+        Admin
+      </div>
+      <div id="roleBtnMahasiswa" class="role-btn-card selected" onclick="selectRole('mahasiswa')">
+        Mahasiswa
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="button" class="btn-auth-submit" style="margin: 0 auto; max-width: 100%;" onclick="proceedToSignUp()">
+      Sign Up
+    </button>
+
+    <div class="auth-links" style="margin-top: 24px;">
+      <a href="login.html">Login in?</a>
+    </div>
+
+  </div>
+
+  <script src="js/app.js"></script>
+  <script>
+    let selectedRole = 'mahasiswa';
+
+    function selectRole(role) {
+      selectedRole = role;
+      document.getElementById('roleBtnAdmin').classList.toggle('selected', role === 'admin');
+      document.getElementById('roleBtnMahasiswa').classList.toggle('selected', role === 'mahasiswa');
+    }
+
+    function proceedToSignUp() {
+      if (selectedRole === 'admin') {
+        window.location.href = 'signup-admin.html';
+      } else {
+        window.location.href = 'signup-mahasiswa.html';
+      }
+    }
+  </script>
+</body>
+</html>

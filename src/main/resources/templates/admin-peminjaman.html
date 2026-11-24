@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Peminjaman & Pengembalian - Admin Perpustakaan</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/prototype-bar.css">
+</head>
+<body>
+
+  <div class="app-container">
+    
+    <!-- ADMIN SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <svg viewBox="0 0 24 24">
+          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+          <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+        </svg>
+        <span class="brand-title">Perpustakaan</span>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="admin-dashboard.html" class="nav-item">
+          <div class="nav-item-left">
+            <svg viewBox="0 0 24 24">
+              <rect x="3" y="3" width="7" height="7" rx="1"></rect>
+              <rect x="14" y="3" width="7" height="7" rx="1"></rect>
+              <rect x="14" y="14" width="7" height="7" rx="1"></rect>
+              <rect x="3" y="14" width="7" height="7" rx="1"></rect>
+            </svg>
+            <span>Dashboard</span>
+          </div>
+        </a>
+
+        <a href="admin-buku.html" class="nav-item">
+          <div class="nav-item-left">
+            <svg viewBox="0 0 24 24">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+            </svg>
+            <span>Daftar Buku</span>
+          </div>
+        </a>
+
+        <!-- Peminjaman & Pengembalian (Active) -->
+        <a href="admin-peminjaman.html" class="nav-item active">
+          <div class="nav-item-left">
+            <svg viewBox="0 0 24 24">
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+            </svg>
+            <span>Peminjaman & Pengembalian</span>
+          </div>
+        </a>
+
+        <a href="admin-anggota.html" class="nav-item">
+          <div class="nav-item-left">
+            <svg viewBox="0 0 24 24">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+            <span>Anggota</span>
+          </div>
+        </a>
+
+        <a href="javascript:void(0)" class="nav-item" onclick="showToast('Modul Laporan Perpustakaan siap diekspor ke PDF/Excel.', 'success')">
+          <div class="nav-item-left">
+            <svg viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="3"></circle>
+              <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+            </svg>
+            <span>Laporan</span>
+          </div>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <img src="assets/images/admin-avatar.png" alt="Admin Avatar" class="user-avatar-img">
+        <div class="user-info">
+          <span class="user-name">Javier Ferdinand</span>
+          <span class="user-role">Super Admin</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- MAIN WRAPPER -->
+    <main class="main-wrapper">
+      
+      <!-- Top Header -->
+      <header class="top-header" style="background: transparent; border: none; box-shadow: none; padding: 0 0 20px 0; margin-bottom: 10px;">
+        <div></div>
+        <div class="header-actions">
+          <span class="admin-time-pill">22.07 WITA 11 September 2026</span>
+          <a href="login.html" class="btn-logout" style="background: #ffffff;">Log Out</a>
+        </div>
+      </header>
+
+      <!-- Main Card: Daftar Peminjaman -->
+      <section class="card-section">
+        <div class="table-toolbar">
+          <div class="table-toolbar-left">
+            <h3 class="section-title">Daftar Peminjaman</h3>
+            <button class="btn-primary-green" onclick="openAddLoanModal()">
+              <span>+</span> Tambah Peminjaman
+            </button>
+          </div>
+
+          <div class="table-toolbar-right">
+            <div class="header-search" style="margin: 0; max-width: 280px;">
+              <svg viewBox="0 0 24 24">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <input 
+                type="text" 
+                placeholder="Cari Nama Anggota, Judul...."
+                data-search-target="#loanTable tbody tr"
+              >
+            </div>
+
+            <select class="select-filter" data-filter-category="#loanTable tbody tr">
+              <option value="Semua Kategori">Semua Kategori</option>
+              <option value="Teknologi">Teknologi</option>
+              <option value="Filsafat">Filsafat</option>
+              <option value="Keuangan">Keuangan</option>
+              <option value="Sastra">Sastra</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="table-responsive">
+          <table class="custom-data-table" id="loanTable">
+            <thead>
+              <tr>
+                <th style="width: 50px;">No.</th>
+                <th>Nama Anggota</th>
+                <th>Judul Buku</th>
+                <th>Jatuh Tempo</th>
+                <th>Total Denda</th>
+                <th style="text-align: right;">Aksi</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Row 1 -->
+              <tr id="loanRow1" data-category="Teknologi">
+                <td>1</td>
+                <td>
+                  <strong style="color: #0f172a;">Javier Ferdinand</strong>
+                  <div style="font-size: 11px; color: #64748b;">NIM 2310511024</div>
+                </td>
+                <td>Clean Code: A Handbook of Agile Software</td>
+                <td><span style="color: #b45309; font-weight: 600;">30 Sep 2026</span></td>
+                <td><span style="color: #64748b;">Rp 0</span></td>
+                <td style="text-align: right;">
+                  <button class="btn-danger-pill" onclick="openSignatureModal('loanRow1')">
+                    &mdash; Pengembalian
+                  </button>
+                </td>
+              </tr>
+
+              <!-- Row 2 -->
+              <tr id="loanRow2" data-category="Filsafat">
+                <td>2</td>
+                <td>
+                  <strong style="color: #0f172a;">Javier Ferdinand</strong>
+                  <div style="font-size: 11px; color: #64748b;">NIM 2310511024</div>
+                </td>
+                <td>Filosofi Teras</td>
+                <td><span style="color: #b91c1c; font-weight: 700;">25 Sep 2026 (Telat)</span></td>
+                <td><span style="color: #b91c1c; font-weight: 700;">Rp 15.000</span></td>
+                <td style="text-align: right;">
+                  <button class="btn-danger-pill" onclick="openSignatureModal('loanRow2')">
+                    &mdash; Pengembalian
+                  </button>
+                </td>
+              </tr>
+
+              <!-- Row 3 -->
+              <tr id="loanRow3" data-category="Keuangan">
+                <td>3</td>
+                <td>
+                  <strong style="color: #0f172a;">Ni Putu Desi Ratnasari</strong>
+                  <div style="font-size: 11px; color: #64748b;">NIM 2308561008</div>
+                </td>
+                <td>The Psychology of Money</td>
+                <td><span>02 Okt 2026</span></td>
+                <td><span style="color: #64748b;">Rp 0</span></td>
+                <td style="text-align: right;">
+                  <button class="btn-danger-pill" onclick="openSignatureModal('loanRow3')">
+                    &mdash; Pengembalian
+                  </button>
+                </td>
+              </tr>
+
+              <!-- Row 4 -->
+              <tr id="loanRow4" data-category="Sastra">
+                <td>4</td>
+                <td>
+                  <strong style="color: #0f172a;">I Gusti Ngurah Agung Surya</strong>
+                  <div style="font-size: 11px; color: #64748b;">NIM 2308561021</div>
+                </td>
+                <td>Laut Bercerita</td>
+                <td><span>04 Okt 2026</span></td>
+                <td><span style="color: #64748b;">Rp 0</span></td>
+                <td style="text-align: right;">
+                  <button class="btn-danger-pill" onclick="openSignatureModal('loanRow4')">
+                    &mdash; Pengembalian
+                  </button>
+                </td>
+              </tr>
+
+              <!-- Row 5 -->
+              <tr id="loanRow5" data-category="Teknologi">
+                <td>5</td>
+                <td>
+                  <strong style="color: #0f172a;">Kadek Ayu Trisnadewi</strong>
+                  <div style="font-size: 11px; color: #64748b;">NIM 2305541019</div>
+                </td>
+                <td>Atomic Habits</td>
+                <td><span>05 Okt 2026</span></td>
+                <td><span style="color: #64748b;">Rp 0</span></td>
+                <td style="text-align: right;">
+                  <button class="btn-danger-pill" onclick="openSignatureModal('loanRow5')">
+                    &mdash; Pengembalian
+                  </button>
+                </td>
+              </tr>
+
+              <!-- Row 6 -->
+              <tr id="loanRow6" data-category="Sastra">
+                <td>6</td>
+                <td>
+                  <strong style="color: #0f172a;">I Wayan Bayu Pratama</strong>
+                  <div style="font-size: 11px; color: #64748b;">NIM 2301511044</div>
+                </td>
+                <td>Sapiens: Riwayat Singkat Umat Manusia</td>
+                <td><span>07 Okt 2026</span></td>
+                <td><span style="color: #64748b;">Rp 0</span></td>
+                <td style="text-align: right;">
+                  <button class="btn-danger-pill" onclick="openSignatureModal('loanRow6')">
+                    &mdash; Pengembalian
+                  </button>
+                </td>
+              </tr>
+
+              <!-- Row 7 -->
+              <tr id="loanRow7" data-category="Filsafat">
+                <td>7</td>
+                <td>
+                  <strong style="color: #0f172a;">Ni Made Sintya Dewi</strong>
+                  <div style="font-size: 11px; color: #64748b;">NIM 2307521012</div>
+                </td>
+                <td>Filosofi Teras</td>
+                <td><span style="color: #b91c1c; font-weight: 700;">26 Sep 2026 (Telat)</span></td>
+                <td><span style="color: #b91c1c; font-weight: 700;">Rp 10.000</span></td>
+                <td style="text-align: right;">
+                  <button class="btn-danger-pill" onclick="openSignatureModal('loanRow7')">
+                    &mdash; Pengembalian
+                  </button>
+                </td>
+              </tr>
+
+              <!-- Row 8 -->
+              <tr id="loanRow8" data-category="Teknologi">
+                <td>8</td>
+                <td>
+                  <strong style="color: #0f172a;">Ketut Ari Santosa</strong>
+                  <div style="font-size: 11px; color: #64748b;">NIM 2308561055</div>
+                </td>
+                <td>Clean Code</td>
+                <td><span>09 Okt 2026</span></td>
+                <td><span style="color: #64748b;">Rp 0</span></td>
+                <td style="text-align: right;">
+                  <button class="btn-danger-pill" onclick="openSignatureModal('loanRow8')">
+                    &mdash; Pengembalian
+                  </button>
+                </td>
+              </tr>
+
+              <!-- Row 9 -->
+              <tr id="loanRow9" data-category="Filsafat">
+                <td>9</td>
+                <td>
+                  <strong style="color: #0f172a;">Komang Dian Maharani</strong>
+                  <div style="font-size: 11px; color: #64748b;">NIM 2305531003</div>
+                </td>
+                <td>Filosofi Teras</td>
+                <td><span style="color: #b91c1c; font-weight: 700;">23 Sep 2026 (Telat)</span></td>
+                <td><span style="color: #b91c1c; font-weight: 700;">Rp 25.000</span></td>
+                <td style="text-align: right;">
+                  <button class="btn-danger-pill" onclick="openSignatureModal('loanRow9')">
+                    &mdash; Pengembalian
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination-wrapper">
+          <button class="btn-page-ctrl">&lt;</button>
+          <button class="btn-page-ctrl active-page">-</button>
+          <button class="btn-page-ctrl">&gt;</button>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- POPUP MODAL TANDA TANGAN (dashboard admin-Peminjaman Pop up.png) -->
+  <div id="signatureModal" class="modal-overlay">
+    <div class="modal-card" style="max-width: 600px; padding: 32px;">
+      <!-- Close button (Red circle X as in mockup) -->
+      <button class="modal-close-btn" onclick="closeSignatureModal()">&times;</button>
+      
+      <h3 style="font-size: 26px; font-weight: 700; color: #0f172a; text-align: center; margin-bottom: 8px;">
+        Tanda Tangan
+      </h3>
+      <p style="text-align: center; font-size: 13px; color: #64748b; margin-bottom: 16px;">
+        Silakan gambar tanda tangan peminjam di bawah ini sebagai bukti serah terima pengembalian buku.
+      </p>
+
+      <!-- Signature Pad Box -->
+      <div class="signature-canvas-container">
+        <canvas id="signatureCanvas"></canvas>
+        <div id="signaturePrompt" class="signature-prompt-text">
+          Tanda tangan di sini dengan mouse atau sentuhan jari...
+        </div>
+      </div>
+
+      <!-- Action Footer -->
+      <div class="signature-actions-row">
+        <button type="button" class="btn-clear-sig" onclick="clearSignature()">
+          Bersihkan Tanda Tangan
+        </button>
+
+        <button type="button" class="btn-primary-green" style="padding: 10px 28px; font-size: 14px;" onclick="confirmReturnSignature()">
+          Konfirmasi
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Tambah Peminjaman -->
+  <div id="addLoanModal" class="modal-overlay">
+    <div class="modal-card">
+      <button class="modal-close-btn" onclick="closeAddLoanModal()">&times;</button>
+      <h3 style="font-size: 20px; font-weight: 700; color: #0f172a; margin-bottom: 6px;">Catat Peminjaman Baru</h3>
+      <p style="font-size: 13px; color: #64748b; margin-bottom: 20px;">Masukkan data peminjaman buku oleh anggota perpustakaan.</p>
+
+      <form onsubmit="handleAddNewLoan(event)">
+        <div class="form-group">
+          <label class="form-label">Nama Anggota</label>
+          <input type="text" id="newLoanMember" class="form-control" placeholder="Contoh: Javier Ferdinand" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">NIM Anggota</label>
+          <input type="text" id="newLoanNIM" class="form-control" placeholder="Contoh: 2310511024" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Judul Buku</label>
+          <select id="newLoanBook" class="form-control">
+            <option value="Clean Code: A Handbook of Agile Software">Clean Code: A Handbook of Agile Software</option>
+            <option value="Filosofi Teras">Filosofi Teras</option>
+            <option value="The Psychology of Money">The Psychology of Money</option>
+            <option value="Laut Bercerita">Laut Bercerita</option>
+            <option value="Atomic Habits">Atomic Habits</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Tanggal Jatuh Tempo</label>
+          <input type="date" id="newLoanDueDate" class="form-control" value="2026-10-15" required>
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; gap: 12px; margin-top: 14px;">
+          <button type="button" class="btn-outline" onclick="closeAddLoanModal()">Batal</button>
+          <button type="submit" class="btn-primary-green">Simpan Peminjaman</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/signature-pad.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    function openAddLoanModal() {
+      document.getElementById('addLoanModal').classList.add('active');
+    }
+    function closeAddLoanModal() {
+      document.getElementById('addLoanModal').classList.remove('active');
+    }
+    function handleAddNewLoan(e) {
+      e.preventDefault();
+      const member = document.getElementById('newLoanMember').value;
+      const nim = document.getElementById('newLoanNIM').value;
+      const book = document.getElementById('newLoanBook').value;
+      const date = document.getElementById('newLoanDueDate').value;
+
+      const tbody = document.querySelector('#loanTable tbody');
+      const rowCount = tbody.querySelectorAll('tr').length + 1;
+      const newRowId = `loanRow${rowCount}`;
+
+      const tr = document.createElement('tr');
+      tr.id = newRowId;
+      tr.innerHTML = `
+        <td>${rowCount}</td>
+        <td>
+          <strong style="color: #0f172a;">${member}</strong>
+          <div style="font-size: 11px; color: #64748b;">NIM ${nim}</div>
+        </td>
+        <td>${book}</td>
+        <td><span>${date}</span></td>
+        <td><span style="color: #64748b;">Rp 0</span></td>
+        <td style="text-align: right;">
+          <button class="btn-danger-pill" onclick="openSignatureModal('${newRowId}')">
+            &mdash; Pengembalian
+          </button>
+        </td>
+      `;
+      tbody.prepend(tr);
+
+      closeAddLoanModal();
+      showToast(`Peminjaman buku "${book}" untuk ${member} berhasil dicatat!`, 'success');
+    }
+  </script>
+</body>
+</html>

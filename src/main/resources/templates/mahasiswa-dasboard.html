@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Mahasiswa - Perpustakaan Universitas</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/prototype-bar.css">
+</head>
+<body>
+
+  <div class="app-container">
+    
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <svg viewBox="0 0 24 24">
+          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+          <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+        </svg>
+        <span class="brand-title">Perpustakaan</span>
+      </div>
+
+      <nav class="sidebar-nav">
+        <!-- Dashboard (Active) -->
+        <a href="mahasiswa-dashboard.html" class="nav-item active">
+          <div class="nav-item-left">
+            <svg viewBox="0 0 24 24">
+              <rect x="3" y="3" width="7" height="7" rx="1"></rect>
+              <rect x="14" y="3" width="7" height="7" rx="1"></rect>
+              <rect x="14" y="14" width="7" height="7" rx="1"></rect>
+              <rect x="3" y="14" width="7" height="7" rx="1"></rect>
+            </svg>
+            <span>Dashboard</span>
+          </div>
+        </a>
+
+        <!-- Peminjaman -->
+        <a href="mahasiswa-peminjaman.html" class="nav-item">
+          <div class="nav-item-left">
+            <svg viewBox="0 0 24 24">
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+            </svg>
+            <span>Peminjaman</span>
+          </div>
+          <span class="badge-count badge-cart-count">3</span>
+        </a>
+
+        <!-- Pengembalian -->
+        <a href="mahasiswa-pengembalian.html" class="nav-item">
+          <div class="nav-item-left">
+            <svg viewBox="0 0 24 24">
+              <polyline points="1 4 1 10 7 10"></polyline>
+              <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+            </svg>
+            <span>Pengembalian</span>
+          </div>
+        </a>
+
+        <!-- Favorit -->
+        <a href="mahasiswa-peminjaman.html?tab=favorit" class="nav-item">
+          <div class="nav-item-left">
+            <svg viewBox="0 0 24 24">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+            <span>Favorit</span>
+          </div>
+        </a>
+
+        <!-- Riwayat -->
+        <a href="mahasiswa-riwayat.html" class="nav-item">
+          <div class="nav-item-left">
+            <svg viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 14 14"></polyline>
+            </svg>
+            <span>Riwayat</span>
+          </div>
+        </a>
+
+        <!-- Denda -->
+        <a href="mahasiswa-denda.html" class="nav-item">
+          <div class="nav-item-left">
+            <svg viewBox="0 0 24 24">
+              <rect x="2" y="6" width="20" height="12" rx="2"></rect>
+              <circle cx="12" cy="12" r="2"></circle>
+              <path d="M6 12h.01M18 12h.01"></path>
+            </svg>
+            <span>Denda</span>
+          </div>
+        </a>
+      </nav>
+
+      <!-- Sidebar User Footer -->
+      <div class="sidebar-footer">
+        <img src="assets/images/admin-avatar.png" alt="User Avatar" class="user-avatar-img">
+        <div class="user-info">
+          <span class="user-name">Javier Ferdinand</span>
+          <span class="user-role">Super Admin</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- MAIN WRAPPER -->
+    <main class="main-wrapper">
+      
+      <!-- Top Header -->
+      <header class="top-header">
+        <div class="header-left">
+          <h2 class="page-title">Dashboard</h2>
+          <span class="page-subtitle">Senin, 28 September 2026</span>
+        </div>
+
+        <div class="header-search">
+          <svg viewBox="0 0 24 24">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input 
+            type="text" 
+            placeholder="Cari judul, penulis, ISBN, atau kategori..."
+            data-search-target=".book-item-card, .recommend-item"
+          >
+        </div>
+
+        <div class="header-actions">
+          <div class="user-badge-header">
+            <div class="avatar-circle-initial">JV</div>
+            <div class="user-text">
+              <span class="name">Javier</span>
+              <span class="id-num">NIM 2310511024</span>
+            </div>
+          </div>
+
+          <a href="login.html" class="btn-logout">Log Out</a>
+        </div>
+      </header>
+
+      <!-- 2-COLUMN MAIN CONTENT -->
+      <div class="dashboard-grid-2col">
+        
+        <!-- Left Column: Peminjaman Aktif -->
+        <section class="card-section">
+          <div class="card-section-header">
+            <h3 class="section-title">Peminjaman Aktif</h3>
+            <a href="mahasiswa-pengembalian.html" class="link-more">
+              Lihat semua (3) <span>&rarr;</span>
+            </a>
+          </div>
+
+          <div class="book-cards-stack">
+            <!-- Book 1: Clean Code -->
+            <div class="book-item-card status-due-soon">
+              <div class="book-card-left">
+                <div class="book-thumbnail-wrap">
+                  <img src="assets/images/book-clean-code.png" alt="Clean Code">
+                </div>
+                <div class="book-info-texts">
+                  <h4 class="book-title">Clean Code</h4>
+                  <span class="book-author">Robert C. Martin</span>
+                  <p class="book-dates">
+                    Dipinjam 15 Sep 2026 &nbsp;&bull;&nbsp; Kembali <span class="kembali-highlight">30 Sep 2026</span>
+                  </p>
+                </div>
+              </div>
+
+              <div class="book-card-right">
+                <span class="status-pill pill-amber">Sisa 1 Hari</span>
+                <div class="book-action-btns">
+                  <button class="btn-detail" onclick="openBookDetail('Clean Code', 'Robert C. Martin', '978-0-13-235088-4', 'Teknologi', 'Buku panduan legendaris tentang penulisan kode bersih, refactoring, dan arsitektur perangkat lunak yang maintainable.')">Detail</button>
+                  <button class="btn-action-primary" onclick="extendLoan('Clean Code')">Perpanjang</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Book 2: Filosofi Teras -->
+            <div class="book-item-card status-safe">
+              <div class="book-card-left">
+                <div class="book-thumbnail-wrap">
+                  <img src="assets/images/book-filosofi-teras.png" alt="Filosofi Teras">
+                </div>
+                <div class="book-info-texts">
+                  <h4 class="book-title">Filosofi Teras</h4>
+                  <span class="book-author">Henry Manampiring</span>
+                  <p class="book-dates">
+                    Dipinjam 18 Sep 2026 &nbsp;&bull;&nbsp; Kembali 02 Okt 2026
+                  </p>
+                </div>
+              </div>
+
+              <div class="book-card-right">
+                <span class="status-pill pill-green">Sisa 7 Hari</span>
+                <div class="book-action-btns">
+                  <button class="btn-detail" onclick="openBookDetail('Filosofi Teras', 'Henry Manampiring', '978-602-412-518-9', 'Filsafat / Self-Improvement', 'Penerapan filsafat Stoisisme kuno untuk mengatasi emosi negatif dan menumbuhkan ketenangan mental di zaman modern.')">Detail</button>
+                  <button class="btn-action-primary" onclick="extendLoan('Filosofi Teras')">Perpanjang</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Book 3: Filosofi Teras (Copy 2) -->
+            <div class="book-item-card status-safe">
+              <div class="book-card-left">
+                <div class="book-thumbnail-wrap">
+                  <img src="assets/images/book-filosofi-teras.png" alt="Filosofi Teras">
+                </div>
+                <div class="book-info-texts">
+                  <h4 class="book-title">Filosofi Teras</h4>
+                  <span class="book-author">Henry Manampiring</span>
+                  <p class="book-dates">
+                    Dipinjam 18 Sep 2026 &nbsp;&bull;&nbsp; Kembali 02 Okt 2026
+                  </p>
+                </div>
+              </div>
+
+              <div class="book-card-right">
+                <span class="status-pill pill-green">Sisa 7 Hari</span>
+                <div class="book-action-btns">
+                  <button class="btn-detail" onclick="openBookDetail('Filosofi Teras (Vol. 2)', 'Henry Manampiring', '978-602-412-519-6', 'Filsafat', 'Edisi kedua catatan praktis Stoisisme mental health.')">Detail</button>
+                  <button class="btn-action-primary" onclick="extendLoan('Filosofi Teras')">Perpanjang</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Book 4: Filosofi Teras (Copy 3) -->
+            <div class="book-item-card status-safe">
+              <div class="book-card-left">
+                <div class="book-thumbnail-wrap">
+                  <img src="assets/images/book-filosofi-teras.png" alt="Filosofi Teras">
+                </div>
+                <div class="book-info-texts">
+                  <h4 class="book-title">Filosofi Teras</h4>
+                  <span class="book-author">Henry Manampiring</span>
+                  <p class="book-dates">
+                    Dipinjam 18 Sep 2026 &nbsp;&bull;&nbsp; Kembali 02 Okt 2026
+                  </p>
+                </div>
+              </div>
+
+              <div class="book-card-right">
+                <span class="status-pill pill-green">Sisa 7 Hari</span>
+                <div class="book-action-btns">
+                  <button class="btn-detail" onclick="openBookDetail('Filosofi Teras', 'Henry Manampiring', '978-602-412-518-9', 'Filsafat', 'Penerapan filsafat Stoa.')">Detail</button>
+                  <button class="btn-action-primary" onclick="extendLoan('Filosofi Teras')">Perpanjang</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Right Column: Rekomendasi & Aktivitas -->
+        <div style="display: flex; flex-direction: column; gap: 24px;">
+          
+          <!-- Section Rekomendasi Buku -->
+          <section class="card-section" style="margin-bottom: 0;">
+            <div class="card-section-header">
+              <h3 class="section-title">Rekomendasi Buku</h3>
+              <a href="mahasiswa-peminjaman.html" class="link-more">
+                Eksplorasi <span>&rarr;</span>
+              </a>
+            </div>
+
+            <div class="recommend-list">
+              <!-- Item 1: Psychology of Money -->
+              <div class="recommend-item">
+                <div class="recommend-item-left">
+                  <div class="book-thumbnail-wrap" style="width: 40px; height: 56px;">
+                    <img src="assets/images/book-psychology-money.png" alt="The Psychology of Money">
+                  </div>
+                  <div>
+                    <h5 class="book-title" style="font-size: 13px;">The Psychology of Money</h5>
+                    <span class="book-author" style="font-size: 11px;">Morgan Housel</span>
+                  </div>
+                </div>
+                <button class="btn-bookmark" onclick="toggleFavorite(this, 'The Psychology of Money')">
+                  <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                </button>
+              </div>
+
+              <!-- Item 2: Laut Bercerita -->
+              <div class="recommend-item">
+                <div class="recommend-item-left">
+                  <div class="book-thumbnail-wrap" style="width: 40px; height: 56px;">
+                    <img src="assets/images/book-laut-bercerita.png" alt="Laut Bercerita">
+                  </div>
+                  <div>
+                    <h5 class="book-title" style="font-size: 13px;">Laut Bercerita</h5>
+                    <span class="book-author" style="font-size: 11px;">Leila S. Chudori</span>
+                  </div>
+                </div>
+                <button class="btn-bookmark" onclick="toggleFavorite(this, 'Laut Bercerita')">
+                  <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                </button>
+              </div>
+
+              <!-- Item 3: The Psychology of Money -->
+              <div class="recommend-item">
+                <div class="recommend-item-left">
+                  <div class="book-thumbnail-wrap" style="width: 40px; height: 56px;">
+                    <img src="assets/images/book-psychology-money.png" alt="The Psychology of Money">
+                  </div>
+                  <div>
+                    <h5 class="book-title" style="font-size: 13px;">The Psychology of Money</h5>
+                    <span class="book-author" style="font-size: 11px;">Morgan Housel</span>
+                  </div>
+                </div>
+                <button class="btn-bookmark" onclick="toggleFavorite(this, 'The Psychology of Money')">
+                  <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                </button>
+              </div>
+            </div>
+          </section>
+
+          <!-- Section Aktivitas Terbaru -->
+          <section class="card-section" style="margin-bottom: 0;">
+            <div class="card-section-header">
+              <h3 class="section-title">Aktivitas Terbaru</h3>
+            </div>
+
+            <div class="activity-stack">
+              <!-- Act 1 -->
+              <div class="activity-row">
+                <div class="activity-row-left">
+                  <div class="activity-icon-badge icon-check">
+                    <svg viewBox="0 0 24 24">
+                      <path d="M9 11l3 3L22 4"></path>
+                      <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+                    </svg>
+                  </div>
+                  <div class="activity-details">
+                    <span class="activity-title">Peminjaman berhasil</span>
+                    <span class="activity-desc">Filosofi Teras telah dipinjam</span>
+                  </div>
+                </div>
+                <span class="activity-time">2j</span>
+              </div>
+
+              <!-- Act 2 -->
+              <div class="activity-row">
+                <div class="activity-row-left">
+                  <div class="activity-icon-badge icon-favorite">
+                    <svg viewBox="0 0 24 24">
+                      <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+                    </svg>
+                  </div>
+                  <div class="activity-details">
+                    <span class="activity-title">Ditambahkan ke favorit</span>
+                    <span class="activity-desc">Atomic Habits</span>
+                  </div>
+                </div>
+                <span class="activity-time">1h</span>
+              </div>
+
+              <!-- Act 3 -->
+              <div class="activity-row">
+                <div class="activity-row-left">
+                  <div class="activity-icon-badge icon-return">
+                    <svg viewBox="0 0 24 24">
+                      <polyline points="1 4 1 10 7 10"></polyline>
+                      <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+                    </svg>
+                  </div>
+                  <div class="activity-details">
+                    <span class="activity-title">Buku dikembalikan</span>
+                    <span class="activity-desc">Sapiens &bull; Tepat waktu</span>
+                  </div>
+                </div>
+                <span class="activity-time">2h</span>
+              </div>
+            </div>
+          </section>
+
+        </div>
+      </div>
+
+      <!-- Bottom Stats Row -->
+      <div class="stats-row">
+        <!-- Stat 1 -->
+        <div class="stat-card">
+          <div class="stat-icon-wrapper">
+            <svg viewBox="0 0 24 24">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+            </svg>
+          </div>
+          <div class="stat-details">
+            <span class="stat-label">Total Buku</span>
+            <div class="stat-placeholder-bar"></div>
+            <span class="stat-sub">Buku Terdaftar</span>
+          </div>
+        </div>
+
+        <!-- Stat 2 -->
+        <div class="stat-card">
+          <div class="stat-icon-wrapper">
+            <svg viewBox="0 0 24 24">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+          </div>
+          <div class="stat-details">
+            <span class="stat-label">Anggota Aktif</span>
+            <div class="stat-placeholder-bar"></div>
+            <span class="stat-sub">Anggota Terdaftar</span>
+          </div>
+        </div>
+
+        <!-- Stat 3 -->
+        <div class="stat-card">
+          <div class="stat-icon-wrapper">
+            <svg viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+          </div>
+          <div class="stat-details">
+            <span class="stat-label">Peminjaman Aktif</span>
+            <div class="stat-placeholder-bar"></div>
+            <span class="stat-sub">Dipinjam Hari Ini</span>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

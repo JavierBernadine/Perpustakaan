@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up Mahasiswa - Perpustakaan Universitas</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/auth.css">
+  <link rel="stylesheet" href="css/prototype-bar.css">
+</head>
+<body class="auth-page">
+
+  <div class="auth-card-container" style="max-width: 960px;">
+    
+    <!-- Title with mini book illustration -->
+    <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
+      <h1 class="auth-title" style="margin-bottom: 0;">Sign Up</h1>
+      <img src="assets/images/signup-illustration.png" alt="Books Illustration" style="height: 54px; object-fit: contain;">
+    </div>
+
+    <form id="signupMahasiswaForm" onsubmit="handleSignupMhs(event)">
+      <div class="signup-form-grid">
+        <!-- Left Column -->
+        <div>
+          <div class="form-group">
+            <label class="form-label" for="mhsUsername">Username or Email</label>
+            <input 
+              type="text" 
+              id="mhsUsername" 
+              class="form-control" 
+              placeholder="Masukkan nama pengguna atau alamat email Anda" 
+              required
+            >
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="mhsPassword">Password</label>
+            <input 
+              type="password" 
+              id="mhsPassword" 
+              class="form-control" 
+              placeholder="Masukkan kata sandi Anda" 
+              required
+            >
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="mhsNama">Nama Lengkap</label>
+            <input 
+              type="text" 
+              id="mhsNama" 
+              class="form-control" 
+              placeholder="Masukkan nama lengkap Anda" 
+              required
+            >
+          </div>
+        </div>
+
+        <!-- Right Column -->
+        <div>
+          <div class="form-group">
+            <label class="form-label" for="mhsNIM">Nomor Induk Mahasiswa</label>
+            <input 
+              type="text" 
+              id="mhsNIM" 
+              class="form-control" 
+              placeholder="Masukkan jawaban anda" 
+              required
+            >
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="mhsTelp">Nomor Telepon</label>
+            <input 
+              type="tel" 
+              id="mhsTelp" 
+              class="form-control" 
+              placeholder="Masukkan nomor Anda" 
+              required
+            >
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="mhsProdi">Program Studi</label>
+            <input 
+              type="text" 
+              id="mhsProdi" 
+              class="form-control" 
+              placeholder="Masukkan jawaban anda" 
+              required
+            >
+          </div>
+        </div>
+      </div>
+
+      <button type="submit" class="btn-auth-submit" style="margin-top: 14px;">Sign Up</button>
+
+      <div class="auth-links" style="margin-top: 20px;">
+        <a href="login.html">Login in?</a>
+      </div>
+    </form>
+
+  </div>
+
+  <script src="js/app.js"></script>
+  <script>
+    async function handleSignupMhs(e) {
+      e.preventDefault();
+      const username = document.getElementById('mhsUsername').value;
+      const password = document.getElementById('mhsPassword').value;
+      const nama = document.getElementById('mhsNama').value;
+      const nim = document.getElementById('mhsNIM').value;
+      const telp = document.getElementById('mhsTelp').value;
+      const prodi = document.getElementById('mhsProdi').value;
+
+      if (window.LibraryAPI) {
+        const res = await window.LibraryAPI.registerMahasiswa({ username, password, nama, nim, telepon: telp, prodi });
+        if (res && res.success) {
+          AppState.currentUser.mahasiswa.name = nama || 'Javier';
+          AppState.currentUser.mahasiswa.id = nim ? `NIM ${nim}` : 'NIM 2310511024';
+          localStorage.setItem('lib_role', 'mahasiswa');
+          saveState();
+          showToast('Pendaftaran Mahasiswa Berhasil ke Server Java!', 'success');
+          setTimeout(() => {
+            window.location.href = 'mahasiswa-dashboard.html';
+          }, 800);
+          return;
+        }
+      }
+
+      AppState.currentUser.mahasiswa.name = nama || 'Javier';
+      AppState.currentUser.mahasiswa.id = nim ? `NIM ${nim}` : 'NIM 2310511024';
+      saveState();
+
+      showToast('Pendaftaran Mahasiswa Berhasil! Mengalihkan ke Dashboard...', 'success');
+      setTimeout(() => {
+        window.location.href = 'mahasiswa-dashboard.html';
+      }, 1000);
+    }
+  </script>
+</body>
+</html>
