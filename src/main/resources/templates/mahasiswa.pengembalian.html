@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pengembalian Buku - Perpustakaan Universitas</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/prototype-bar.css">
+</head>
+<body>
+
+  <div class="app-container">
+    
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <svg viewBox="0 0 24 24">
+          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+          <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+        </svg>
+        <span class="brand-title">Perpustakaan</span>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="mahasiswa-dashboard.html" class="nav-item">
+          <div class="nav-item-left">
+            <svg viewBox="0 0 24 24">
+              <rect x="3" y="3" width="7" height="7" rx="1"></rect>
+              <rect x="14" y="3" width="7" height="7" rx="1"></rect>
+              <rect x="14" y="14" width="7" height="7" rx="1"></rect>
+              <rect x="3" y="14" width="7" height="7" rx="1"></rect>
+            </svg>
+            <span>Dashboard</span>
+          </div>
+        </a>
+
+        <a href="mahasiswa-peminjaman.html" class="nav-item">
+          <div class="nav-item-left">
+            <svg viewBox="0 0 24 24">
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+            </svg>
+            <span>Peminjaman</span>
+          </div>
+          <span class="badge-count badge-cart-count">3</span>
+        </a>
+
+        <!-- Pengembalian (Active) -->
+        <a href="mahasiswa-pengembalian.html" class="nav-item active">
+          <div class="nav-item-left">
+            <svg viewBox="0 0 24 24">
+              <polyline points="1 4 1 10 7 10"></polyline>
+              <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+            </svg>
+            <span>Pengembalian</span>
+          </div>
+        </a>
+
+        <a href="mahasiswa-peminjaman.html?tab=favorit" class="nav-item">
+          <div class="nav-item-left">
+            <svg viewBox="0 0 24 24">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+            <span>Favorit</span>
+          </div>
+        </a>
+
+        <a href="mahasiswa-riwayat.html" class="nav-item">
+          <div class="nav-item-left">
+            <svg viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 14 14"></polyline>
+            </svg>
+            <span>Riwayat</span>
+          </div>
+        </a>
+
+        <a href="mahasiswa-denda.html" class="nav-item">
+          <div class="nav-item-left">
+            <svg viewBox="0 0 24 24">
+              <rect x="2" y="6" width="20" height="12" rx="2"></rect>
+              <circle cx="12" cy="12" r="2"></circle>
+              <path d="M6 12h.01M18 12h.01"></path>
+            </svg>
+            <span>Denda</span>
+          </div>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <img src="assets/images/admin-avatar.png" alt="User Avatar" class="user-avatar-img">
+        <div class="user-info">
+          <span class="user-name">Javier Ferdinand</span>
+          <span class="user-role">Super Admin</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- MAIN WRAPPER -->
+    <main class="main-wrapper">
+      
+      <!-- Top Header -->
+      <header class="top-header">
+        <div class="header-search" style="margin-left: 0; max-width: 500px;">
+          <svg viewBox="0 0 24 24">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input 
+            type="text" 
+            placeholder="Cari judul, penulis, ISBN, atau kategori..."
+            data-search-target=".book-item-card"
+          >
+        </div>
+
+        <div class="header-actions">
+          <div class="user-badge-header">
+            <div class="avatar-circle-initial">JV</div>
+            <div class="user-text">
+              <span class="name">Javier</span>
+              <span class="id-num">NIM 2310511024</span>
+            </div>
+          </div>
+
+          <a href="login.html" class="btn-logout">Log Out</a>
+        </div>
+      </header>
+
+      <!-- Main Card: Pengembalian Buku -->
+      <section class="card-section">
+        <div class="card-section-header">
+          <h3 class="section-title" style="display: flex; align-items: center; gap: 10px;">
+            Pengembalian Buku
+            <a href="mahasiswa-denda.html" title="Lihat Denda Keterlambatan" style="color: var(--primary-blue);">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+          </h3>
+        </div>
+
+        <div class="book-cards-stack">
+          <!-- Item 1: Telat (Red Outline & Background) -->
+          <div class="book-item-card status-danger" style="border: 1.5px solid #ef4444; background-color: #fee2e2;" id="returnRow1">
+            <div class="book-card-left">
+              <div class="book-thumbnail-wrap">
+                <img src="assets/images/book-filosofi-teras.png" alt="Filosofi Teras">
+              </div>
+              <div class="book-info-texts">
+                <h4 class="book-title">Filosofi Teras</h4>
+                <span class="book-author">Henry Manampiring</span>
+                <p class="book-dates">
+                  Dipinjam 18 Sep 2026 &nbsp;&bull;&nbsp; Kembali <span class="kembali-highlight" style="color: #b91c1c;">02 Okt 2026</span>
+                </p>
+              </div>
+            </div>
+
+            <div class="book-card-right">
+              <span class="status-pill pill-red">Telat</span>
+              <div class="book-action-btns">
+                <button class="btn-detail" onclick="openBookDetail('Filosofi Teras', 'Henry Manampiring', '978-602-412-518-9', 'Filsafat', 'Penerapan filsafat Stoisisme.')">Detail</button>
+                <button class="btn-action-primary" onclick="handleKembalikanBuku('returnRow1', 'Filosofi Teras')">Kembalikan</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 2: Sisa 1 Hari (Orange Outline) -->
+          <div class="book-item-card status-warning" style="border: 1.5px solid #f59e0b; background-color: #fffbeb;" id="returnRow2">
+            <div class="book-card-left">
+              <div class="book-thumbnail-wrap">
+                <img src="assets/images/book-clean-code.png" alt="Clean Code">
+              </div>
+              <div class="book-info-texts">
+                <h4 class="book-title">Clean Code</h4>
+                <span class="book-author">Robert C. Martin</span>
+                <p class="book-dates">
+                  Dipinjam 15 Sep 2026 &nbsp;&bull;&nbsp; Kembali <span class="kembali-highlight">30 Sep 2026</span>
+                </p>
+              </div>
+            </div>
+
+            <div class="book-card-right">
+              <span class="status-pill pill-amber" id="badgeRow2">Sisa 1 Hari</span>
+              <div class="book-action-btns">
+                <button class="btn-detail" onclick="openBookDetail('Clean Code', 'Robert C. Martin', '978-0-13-235088-4', 'Teknologi', 'Panduan pembuatan software yang berkualitas tinggi.')">Detail</button>
+                <button class="btn-action-primary" onclick="handlePerpanjang('badgeRow2', 'Clean Code')">Perpanjang</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 3: Sisa 7 Hari (Safe) -->
+          <div class="book-item-card status-safe" id="returnRow3">
+            <div class="book-card-left">
+              <div class="book-thumbnail-wrap">
+                <img src="assets/images/book-filosofi-teras.png" alt="Filosofi Teras">
+              </div>
+              <div class="book-info-texts">
+                <h4 class="book-title">Filosofi Teras</h4>
+                <span class="book-author">Henry Manampiring</span>
+                <p class="book-dates">
+                  Dipinjam 18 Sep 2026 &nbsp;&bull;&nbsp; Kembali 02 Okt 2026
+                </p>
+              </div>
+            </div>
+
+            <div class="book-card-right">
+              <span class="status-pill pill-green">Sisa 7 Hari</span>
+              <div class="book-action-btns">
+                <button class="btn-detail" onclick="openBookDetail('Filosofi Teras', 'Henry Manampiring', '978-602-412-518-9', 'Filsafat', 'Filsafat Stoa.')">Detail</button>
+                <button class="btn-action-primary" onclick="extendLoan('Filosofi Teras')">Perpanjang</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 4: Sisa 7 Hari (Safe) -->
+          <div class="book-item-card status-safe" id="returnRow4">
+            <div class="book-card-left">
+              <div class="book-thumbnail-wrap">
+                <img src="assets/images/book-filosofi-teras.png" alt="Filosofi Teras">
+              </div>
+              <div class="book-info-texts">
+                <h4 class="book-title">Filosofi Teras</h4>
+                <span class="book-author">Henry Manampiring</span>
+                <p class="book-dates">
+                  Dipinjam 18 Sep 2026 &nbsp;&bull;&nbsp; Kembali 02 Okt 2026
+                </p>
+              </div>
+            </div>
+
+            <div class="book-card-right">
+              <span class="status-pill pill-green">Sisa 7 Hari</span>
+              <div class="book-action-btns">
+                <button class="btn-detail" onclick="openBookDetail('Filosofi Teras', 'Henry Manampiring', '978-602-412-518-9', 'Filsafat', 'Filsafat Stoa.')">Detail</button>
+                <button class="btn-action-primary" onclick="extendLoan('Filosofi Teras')">Perpanjang</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="js/app.js"></script>
+  <script>
+    function handleKembalikanBuku(cardId, title) {
+      const card = document.getElementById(cardId);
+      if (card) {
+        card.style.opacity = '0.5';
+        card.style.pointerEvents = 'none';
+      }
+      showToast(`Buku "${title}" berhasil dikembalikan! Masuk ke Riwayat Pengembalian.`, 'success');
+    }
+
+    function handlePerpanjang(badgeId, title) {
+      const badge = document.getElementById(badgeId);
+      if (badge) {
+        badge.className = 'status-pill pill-green';
+        badge.textContent = 'Sisa 8 Hari';
+      }
+      showToast(`Peminjaman "${title}" berhasil diperpanjang 7 hari!`, 'success');
+    }
+  </script>
+</body>
+</html>

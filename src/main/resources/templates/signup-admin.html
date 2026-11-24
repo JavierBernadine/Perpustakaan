@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up Admin - Perpustakaan Universitas</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/auth.css">
+  <link rel="stylesheet" href="css/prototype-bar.css">
+</head>
+<body class="auth-page">
+
+  <div class="auth-card-container" style="max-width: 960px;">
+    
+    <!-- Title with mini book illustration -->
+    <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
+      <h1 class="auth-title" style="margin-bottom: 0;">Sign Up</h1>
+      <img src="assets/images/signup-illustration.png" alt="Books Illustration" style="height: 54px; object-fit: contain;">
+    </div>
+
+    <form id="signupAdminForm" onsubmit="handleSignupAdmin(event)">
+      <div class="signup-form-grid">
+        <!-- Left Column -->
+        <div>
+          <div class="form-group">
+            <label class="form-label" for="adminUsername">Username or Email</label>
+            <input 
+              type="text" 
+              id="adminUsername" 
+              class="form-control" 
+              placeholder="Masukkan nama pengguna atau alamat email Anda" 
+              required
+            >
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="adminPassword">Password</label>
+            <input 
+              type="password" 
+              id="adminPassword" 
+              class="form-control" 
+              placeholder="Masukkan kata sandi Anda" 
+              required
+            >
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="adminNama">Nama Lengkap</label>
+            <input 
+              type="text" 
+              id="adminNama" 
+              class="form-control" 
+              placeholder="Masukkan nama lengkap Anda" 
+              required
+            >
+          </div>
+        </div>
+
+        <!-- Right Column -->
+        <div>
+          <div class="form-group">
+            <label class="form-label" for="adminNIP">Nomor Induk Pegawai</label>
+            <input 
+              type="text" 
+              id="adminNIP" 
+              class="form-control" 
+              placeholder="Masukkan jawaban anda" 
+              required
+            >
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="adminTelp">Nomor Telepon</label>
+            <input 
+              type="tel" 
+              id="adminTelp" 
+              class="form-control" 
+              placeholder="Masukkan nomor anda" 
+              required
+            >
+          </div>
+        </div>
+      </div>
+
+      <button type="submit" class="btn-auth-submit" style="margin-top: 14px;">Sign Up</button>
+
+      <div class="auth-links" style="margin-top: 20px;">
+        <a href="login.html">Login in?</a>
+      </div>
+    </form>
+
+  </div>
+
+  <script src="js/app.js"></script>
+  <script>
+    async function handleSignupAdmin(e) {
+      e.preventDefault();
+      const username = document.getElementById('adminUsername').value;
+      const password = document.getElementById('adminPassword').value;
+      const nama = document.getElementById('adminNama').value;
+      const nip = document.getElementById('adminNIP').value;
+      const telp = document.getElementById('adminTelp').value;
+
+      if (window.LibraryAPI) {
+        const res = await window.LibraryAPI.registerAdmin({ username, password, nama, nip, telepon: telp });
+        if (res && res.success) {
+          if (nama) AppState.currentUser.admin.name = nama;
+          localStorage.setItem('lib_role', 'admin');
+          saveState();
+          showToast('Pendaftaran Admin Berhasil ke Server Java!', 'success');
+          setTimeout(() => {
+            window.location.href = 'admin-dashboard.html';
+          }, 800);
+          return;
+        }
+      }
+
+      if (nama) AppState.currentUser.admin.name = nama;
+      localStorage.setItem('lib_role', 'admin');
+      saveState();
+
+      showToast('Pendaftaran Admin Berhasil! Mengalihkan ke Admin Dashboard...', 'success');
+      setTimeout(() => {
+        window.location.href = 'admin-dashboard.html';
+      }, 1000);
+    }
+  </script>
+</body>
+</html>
