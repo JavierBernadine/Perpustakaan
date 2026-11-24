@@ -2,7 +2,7 @@ package id.ac.unud.perpustakaan.Model;
 
 public enum  StatusAnggota {
     AKTIF("Aktif"),
-    NonAktif("Non-Aktif");
+    NONAKTIF("Non-Aktif");
 
     private final String label ;
 
