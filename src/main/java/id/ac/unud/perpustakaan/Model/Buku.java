@@ -10,6 +10,6 @@ import jakarta.persistence.Id;
 public class Buku {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long i2d;
+    private Long id;
 
 }
