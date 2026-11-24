@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Peminjaman Buku - Perpustakaan Universitas</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/prototype-bar.css">
+</head>
+<body>
+
+  <div class="app-container">
+    
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <svg viewBox="0 0 24 24">
+          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+          <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+        </svg>
+        <span class="brand-title">Perpustakaan</span>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="mahasiswa-dashboard.html" class="nav-item">
+          <div class="nav-item-left">
+            <svg viewBox="0 0 24 24">
+              <rect x="3" y="3" width="7" height="7" rx="1"></rect>
+              <rect x="14" y="3" width="7" height="7" rx="1"></rect>
+              <rect x="14" y="14" width="7" height="7" rx="1"></rect>
+              <rect x="3" y="14" width="7" height="7" rx="1"></rect>
+            </svg>
+            <span>Dashboard</span>
+          </div>
+        </a>
+
+        <!-- Peminjaman (Active) -->
+        <a href="mahasiswa-peminjaman.html" class="nav-item active">
+          <div class="nav-item-left">
+            <svg viewBox="0 0 24 24">
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+            </svg>
+            <span>Peminjaman</span>
+          </div>
+          <span class="badge-count badge-cart-count">3</span>
+        </a>
+
+        <a href="mahasiswa-pengembalian.html" class="nav-item">
+          <div class="nav-item-left">
+            <svg viewBox="0 0 24 24">
+              <polyline points="1 4 1 10 7 10"></polyline>
+              <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+            </svg>
+            <span>Pengembalian</span>
+          </div>
+        </a>
+
+        <a href="mahasiswa-peminjaman.html?tab=favorit" class="nav-item">
+          <div class="nav-item-left">
+            <svg viewBox="0 0 24 24">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+            <span>Favorit</span>
+          </div>
+        </a>
+
+        <a href="mahasiswa-riwayat.html" class="nav-item">
+          <div class="nav-item-left">
+            <svg viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 14 14"></polyline>
+            </svg>
+            <span>Riwayat</span>
+          </div>
+        </a>
+
+        <a href="mahasiswa-denda.html" class="nav-item">
+          <div class="nav-item-left">
+            <svg viewBox="0 0 24 24">
+              <rect x="2" y="6" width="20" height="12" rx="2"></rect>
+              <circle cx="12" cy="12" r="2"></circle>
+              <path d="M6 12h.01M18 12h.01"></path>
+            </svg>
+            <span>Denda</span>
+          </div>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <img src="assets/images/admin-avatar.png" alt="User Avatar" class="user-avatar-img">
+        <div class="user-info">
+          <span class="user-name">Javier Ferdinand</span>
+          <span class="user-role">Super Admin</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- MAIN WRAPPER -->
+    <main class="main-wrapper">
+      
+      <!-- Top Header with Keranjang button -->
+      <header class="top-header">
+        <div class="header-search" style="margin-left: 0; max-width: 500px;">
+          <svg viewBox="0 0 24 24">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input 
+            type="text" 
+            placeholder="Cari judul, penulis, ISBN, atau kategori..."
+            data-search-target=".catalog-item-card"
+          >
+        </div>
+
+        <div class="header-actions">
+          <!-- Keranjang Peminjaman Button -->
+          <a href="mahasiswa-keranjang.html" class="btn-cart-nav">
+            <svg viewBox="0 0 24 24">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="3" y1="9" x2="21" y2="9"></line>
+              <line x1="9" y1="21" x2="9" y2="9"></line>
+            </svg>
+            <span>Keranjang Peminjaman</span>
+          </a>
+
+          <div class="user-badge-header">
+            <div class="avatar-circle-initial">JV</div>
+            <div class="user-text">
+              <span class="name">Javier</span>
+              <span class="id-num">NIM 2310511024</span>
+            </div>
+          </div>
+
+          <a href="login.html" class="btn-logout">Log Out</a>
+        </div>
+      </header>
+
+      <!-- Main Card: Rekomendasi Buku Tersedia -->
+      <section class="card-section">
+        <div class="card-section-header">
+          <h3 class="section-title">Rekomendasi Buku Tersedia</h3>
+        </div>
+
+        <div class="catalog-list">
+          <!-- Item 1: Atomic Habits -->
+          <div class="catalog-item-card" data-title="Atomic Habits" data-author="James Clear">
+            <div class="book-card-left">
+              <div class="book-thumbnail-wrap">
+                <img src="assets/images/book-atomic-habits.png" alt="Atomic Habits">
+              </div>
+              <div class="book-info-texts">
+                <h4 class="book-title">Atomic Habits</h4>
+                <span class="book-author">James Clear</span>
+              </div>
+            </div>
+
+            <div class="catalog-actions">
+              <button class="btn-primary-green" onclick="addToCart('Atomic Habits')">
+                <span>+</span> Tambahkan ke Keranjang
+              </button>
+              <button class="btn-bookmark" onclick="toggleFavorite(this, 'Atomic Habits')">
+                <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Item 2: Laut Bercerita -->
+          <div class="catalog-item-card" data-title="Laut Bercerita" data-author="Leila S. Chudori">
+            <div class="book-card-left">
+              <div class="book-thumbnail-wrap">
+                <img src="assets/images/book-laut-bercerita.png" alt="Laut Bercerita">
+              </div>
+              <div class="book-info-texts">
+                <h4 class="book-title">Laut Bercerita</h4>
+                <span class="book-author">Leila S. Chudori</span>
+              </div>
+            </div>
+
+            <div class="catalog-actions">
+              <button class="btn-primary-green" onclick="addToCart('Laut Bercerita')">
+                <span>+</span> Tambahkan ke Keranjang
+              </button>
+              <button class="btn-bookmark" onclick="toggleFavorite(this, 'Laut Bercerita')">
+                <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Item 3: The Psychology of Money -->
+          <div class="catalog-item-card" data-title="The Psychology of Money" data-author="Morgan Housel">
+            <div class="book-card-left">
+              <div class="book-thumbnail-wrap">
+                <img src="assets/images/book-psychology-money.png" alt="The Psychology of Money">
+              </div>
+              <div class="book-info-texts">
+                <h4 class="book-title">The Psychology of Money</h4>
+                <span class="book-author">Morgan Housel</span>
+              </div>
+            </div>
+
+            <div class="catalog-actions">
+              <button class="btn-primary-green" onclick="addToCart('The Psychology of Money')">
+                <span>+</span> Tambahkan ke Keranjang
+              </button>
+              <button class="btn-bookmark" onclick="toggleFavorite(this, 'The Psychology of Money')">
+                <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Item 4: Atomic Habits (Copy) -->
+          <div class="catalog-item-card" data-title="Atomic Habits" data-author="James Clear">
+            <div class="book-card-left">
+              <div class="book-thumbnail-wrap">
+                <img src="assets/images/book-atomic-habits.png" alt="Atomic Habits">
+              </div>
+              <div class="book-info-texts">
+                <h4 class="book-title">Atomic Habits</h4>
+                <span class="book-author">James Clear</span>
+              </div>
+            </div>
+
+            <div class="catalog-actions">
+              <button class="btn-primary-green" onclick="addToCart('Atomic Habits (Copy)')">
+                <span>+</span> Tambahkan ke Keranjang
+              </button>
+              <button class="btn-bookmark" onclick="toggleFavorite(this, 'Atomic Habits')">
+                <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Item 5: Laut Bercerita (Copy) -->
+          <div class="catalog-item-card" data-title="Laut Bercerita" data-author="Leila S. Chudori">
+            <div class="book-card-left">
+              <div class="book-thumbnail-wrap">
+                <img src="assets/images/book-laut-bercerita.png" alt="Laut Bercerita">
+              </div>
+              <div class="book-info-texts">
+                <h4 class="book-title">Laut Bercerita</h4>
+                <span class="book-author">Leila S. Chudori</span>
+              </div>
+            </div>
+
+            <div class="catalog-actions">
+              <button class="btn-primary-green" onclick="addToCart('Laut Bercerita (Copy)')">
+                <span>+</span> Tambahkan ke Keranjang
+              </button>
+              <button class="btn-bookmark" onclick="toggleFavorite(this, 'Laut Bercerita')">
+                <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daftar Buku - Admin Perpustakaan</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/prototype-bar.css">
+</head>
+<body>
+
+  <div class="app-container">
+    
+    <!-- ADMIN SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <svg viewBox="0 0 24 24">
+          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+          <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+        </svg>
+        <span class="brand-title">Perpustakaan</span>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="admin-dashboard.html" class="nav-item">
+          <div class="nav-item-left">
+            <svg viewBox="0 0 24 24">
+              <rect x="3" y="3" width="7" height="7" rx="1"></rect>
+              <rect x="14" y="3" width="7" height="7" rx="1"></rect>
+              <rect x="14" y="14" width="7" height="7" rx="1"></rect>
+              <rect x="3" y="14" width="7" height="7" rx="1"></rect>
+            </svg>
+            <span>Dashboard</span>
+          </div>
+        </a>
+
+        <!-- Daftar Buku (Active) -->
+        <a href="admin-buku.html" class="nav-item active">
+          <div class="nav-item-left">
+            <svg viewBox="0 0 24 24">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+            </svg>
+            <span>Daftar Buku</span>
+          </div>
+        </a>
+
+        <a href="admin-peminjaman.html" class="nav-item">
+          <div class="nav-item-left">
+            <svg viewBox="0 0 24 24">
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+            </svg>
+            <span>Peminjaman & Pengembalian</span>
+          </div>
+        </a>
+
+        <a href="admin-anggota.html" class="nav-item">
+          <div class="nav-item-left">
+            <svg viewBox="0 0 24 24">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+            <span>Anggota</span>
+          </div>
+        </a>
+
+        <a href="javascript:void(0)" class="nav-item" onclick="showToast('Modul Laporan Perpustakaan siap diekspor ke PDF/Excel.', 'success')">
+          <div class="nav-item-left">
+            <svg viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="3"></circle>
+              <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+            </svg>
+            <span>Laporan</span>
+          </div>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <img src="assets/images/admin-avatar.png" alt="Admin Avatar" class="user-avatar-img">
+        <div class="user-info">
+          <span class="user-name">Javier Ferdinand</span>
+          <span class="user-role">Super Admin</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- MAIN WRAPPER -->
+    <main class="main-wrapper">
+      
+      <!-- Top Header -->
+      <header class="top-header" style="background: transparent; border: none; box-shadow: none; padding: 0 0 20px 0; margin-bottom: 10px;">
+        <div></div>
+        <div class="header-actions">
+          <span class="admin-time-pill">22.07 WITA 11 September 2026</span>
+          <a href="login.html" class="btn-logout" style="background: #ffffff;">Log Out</a>
+        </div>
+      </header>
+
+      <!-- Main Card: Daftar Buku Tersedia -->
+      <section class="card-section">
+        <div class="table-toolbar">
+          <div class="table-toolbar-left">
+            <h3 class="section-title">Daftar Buku Tersedia</h3>
+            <button class="btn-primary-green" onclick="openAddBookModal()">
+              <span>+</span> Tambah Buku Baru
+            </button>
+          </div>
+
+          <div class="table-toolbar-right">
+            <div class="header-search" style="margin: 0; max-width: 260px;">
+              <svg viewBox="0 0 24 24">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <input 
+                type="text" 
+                placeholder="Cari Judul, Penulis, ISBN..."
+                data-search-target="#booksTable tbody tr"
+              >
+            </div>
+
+            <select class="select-filter" data-filter-category="#booksTable tbody tr">
+              <option value="Semua Kategori">Semua Kategori</option>
+              <option value="Teknologi">Teknologi</option>
+              <option value="Filsafat">Filsafat</option>
+              <option value="Keuangan">Keuangan</option>
+              <option value="Sastra">Sastra</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="table-responsive">
+          <table class="custom-data-table" id="booksTable">
+            <thead>
+              <tr>
+                <th style="width: 60px;">No.</th>
+                <th>Judul Buku</th>
+                <th>ISBN</th>
+                <th>Kategori</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Row 1 -->
+              <tr data-category="Teknologi">
+                <td>1</td>
+                <td>
+                  <span style="font-weight: 600; color: #1e293b;">Clean Code: A Handbook of Agile Software Craftsmanship</span>
+                  <div style="font-size: 11px; color: #64748b;">Penulis: Robert C. Martin &bull; Stok: 5 Tersedia</div>
+                </td>
+                <td>978-0-13-235088-4</td>
+                <td><span style="background: #e0f2fe; color: #0369a1; padding: 3px 10px; border-radius: 12px; font-weight: 600; font-size: 11px;">Teknologi</span></td>
+              </tr>
+
+              <!-- Row 2 -->
+              <tr data-category="Filsafat">
+                <td>2</td>
+                <td>
+                  <span style="font-weight: 600; color: #1e293b;">Filosofi Teras: Panduan Hidup Stoa Kuno</span>
+                  <div style="font-size: 11px; color: #64748b;">Penulis: Henry Manampiring &bull; Stok: 8 Tersedia</div>
+                </td>
+                <td>978-602-412-518-9</td>
+                <td><span style="background: #fef3c7; color: #b45309; padding: 3px 10px; border-radius: 12px; font-weight: 600; font-size: 11px;">Filsafat</span></td>
+              </tr>
+
+              <!-- Row 3 -->
+              <tr data-category="Keuangan">
+                <td>3</td>
+                <td>
+                  <span style="font-weight: 600; color: #1e293b;">The Psychology of Money</span>
+                  <div style="font-size: 11px; color: #64748b;">Penulis: Morgan Housel &bull; Stok: 12 Tersedia</div>
+                </td>
+                <td>978-0-85719-768-9</td>
+                <td><span style="background: #dcfce7; color: #15803d; padding: 3px 10px; border-radius: 12px; font-weight: 600; font-size: 11px;">Keuangan</span></td>
+              </tr>
+
+              <!-- Row 4 -->
+              <tr data-category="Sastra">
+                <td>4</td>
+                <td>
+                  <span style="font-weight: 600; color: #1e293b;">Laut Bercerita</span>
+                  <div style="font-size: 11px; color: #64748b;">Penulis: Leila S. Chudori &bull; Stok: 6 Tersedia</div>
+                </td>
+                <td>978-602-424-694-5</td>
+                <td><span style="background: #f3e8ff; color: #7e22ce; padding: 3px 10px; border-radius: 12px; font-weight: 600; font-size: 11px;">Sastra</span></td>
+              </tr>
+
+              <!-- Row 5 -->
+              <tr data-category="Teknologi">
+                <td>5</td>
+                <td>
+                  <span style="font-weight: 600; color: #1e293b;">Atomic Habits: Perubahan Kecil yang Memberikan Hasil Luar Biasa</span>
+                  <div style="font-size: 11px; color: #64748b;">Penulis: James Clear &bull; Stok: 10 Tersedia</div>
+                </td>
+                <td>978-602-06-3317-6</td>
+                <td><span style="background: #e0f2fe; color: #0369a1; padding: 3px 10px; border-radius: 12px; font-weight: 600; font-size: 11px;">Teknologi</span></td>
+              </tr>
+
+              <!-- Row 6 -->
+              <tr data-category="Sastra">
+                <td>6</td>
+                <td>
+                  <span style="font-weight: 600; color: #1e293b;">Sapiens: Riwayat Singkat Umat Manusia</span>
+                  <div style="font-size: 11px; color: #64748b;">Penulis: Yuval Noah Harari &bull; Stok: 4 Tersedia</div>
+                </td>
+                <td>978-602-441-020-9</td>
+                <td><span style="background: #f3e8ff; color: #7e22ce; padding: 3px 10px; border-radius: 12px; font-weight: 600; font-size: 11px;">Sastra</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination-wrapper">
+          <button class="btn-page-ctrl">&lt;</button>
+          <button class="btn-page-ctrl active-page">-</button>
+          <button class="btn-page-ctrl">&gt;</button>
+        </div>
+      </section>
+
+      <!-- Bottom Single Stat Card as shown in design -->
+      <div style="max-width: 280px;">
+        <div class="stat-card">
+          <div class="stat-icon-wrapper">
+            <svg viewBox="0 0 24 24">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+            </svg>
+          </div>
+          <div class="stat-details">
+            <span class="stat-label">Total Buku</span>
+            <div class="stat-val">12,450</div>
+            <span class="stat-sub">Buku Terdaftar</span>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- Modal Tambah Buku Baru -->
+  <div id="addBookModal" class="modal-overlay">
+    <div class="modal-card">
+      <button class="modal-close-btn" onclick="closeAddBookModal()">&times;</button>
+      <h3 style="font-size: 20px; font-weight: 700; color: #0f172a; margin-bottom: 6px;">Tambah Buku Baru</h3>
+      <p style="font-size: 13px; color: #64748b; margin-bottom: 20px;">Lengkapi data buku baru untuk dimasukkan ke sistem katalog perpustakaan.</p>
+
+      <form onsubmit="handleAddNewBook(event)">
+        <div class="form-group">
+          <label class="form-label">Judul Buku</label>
+          <input type="text" id="newBookTitle" class="form-control" placeholder="Contoh: Refactoring: Improving the Design of Existing Code" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Penulis</label>
+          <input type="text" id="newBookAuthor" class="form-control" placeholder="Contoh: Martin Fowler" required>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+          <div class="form-group">
+            <label class="form-label">ISBN</label>
+            <input type="text" id="newBookISBN" class="form-control" placeholder="978-0-xxx-xxxx-x" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Kategori</label>
+            <select id="newBookCategory" class="form-control">
+              <option value="Teknologi">Teknologi</option>
+              <option value="Filsafat">Filsafat</option>
+              <option value="Keuangan">Keuangan</option>
+              <option value="Sastra">Sastra</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; gap: 12px; margin-top: 10px;">
+          <button type="button" class="btn-outline" onclick="closeAddBookModal()">Batal</button>
+          <button type="submit" class="btn-primary-green">Simpan Buku</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+  <script>
+    function openAddBookModal() {
+      document.getElementById('addBookModal').classList.add('active');
+    }
+    function closeAddBookModal() {
+      document.getElementById('addBookModal').classList.remove('active');
+    }
+    function handleAddNewBook(e) {
+      e.preventDefault();
+      const title = document.getElementById('newBookTitle').value;
+      const author = document.getElementById('newBookAuthor').value;
+      const isbn = document.getElementById('newBookISBN').value;
+      const cat = document.getElementById('newBookCategory').value;
+
+      // Kirim data buku baru ke Backend Java
+      if (window.LibraryAPI) {
+        window.LibraryAPI.tambahBuku({
+          judul: title,
+          penulis: author,
+          isbn: isbn,
+          kategori: cat,
+          stok: 5,
+          lokasiRak: 'Lantai 2 - Rak B4'
+        }).then(res => {
+          if (res && res.success) {
+            console.log('[Java Server] Buku baru disimpan:', res.buku);
+          }
+        }).catch(() => {});
+      }
+
+      const tbody = document.querySelector('#booksTable tbody');
+      const rowCount = tbody.querySelectorAll('tr').length + 1;
+      const tr = document.createElement('tr');
+      tr.setAttribute('data-category', cat);
+      tr.innerHTML = `
+        <td>${rowCount}</td>
+        <td>
+          <span style="font-weight: 600; color: #1e293b;">${title}</span>
+          <div style="font-size: 11px; color: #64748b;">Penulis: ${author} &bull; Stok: 5 Tersedia</div>
+        </td>
+        <td>${isbn}</td>
+        <td><span style="background: #e0f2fe; color: #0369a1; padding: 3px 10px; border-radius: 12px; font-weight: 600; font-size: 11px;">${cat}</span></td>
+      `;
+      tbody.prepend(tr);
+
+      closeAddBookModal();
+      showToast(`Buku "${title}" berhasil ditambahkan ke katalog perpustakaan!`, 'success');
+    }
+  </script>
+</body>
+</html>
