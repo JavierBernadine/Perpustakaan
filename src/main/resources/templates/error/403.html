@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="id">
+<head th:replace="~{fragments/layout :: head('Akses Ditolak')}"></head>
+<body>
+<nav th:replace="~{fragments/layout :: navbar}"></nav>
+<main class="container text-center py-5">
+    <h1 class="display-4">403</h1>
+    <p class="lead">Anda tidak memiliki hak akses ke halaman ini.</p>
+    <a class="btn btn-primary" th:href="@{/dashboard}">Kembali ke Dashboard</a>
+</main>
+<th:block th:replace="~{fragments/layout :: skrip}"></th:block>
+</body>
+</html>

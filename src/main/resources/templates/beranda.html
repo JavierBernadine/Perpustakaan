@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="id">
+<head th:replace="~{fragments/layout :: head('Beranda')}"></head>
+<body>
+<nav th:replace="~{fragments/layout :: navbar}"></nav>
+<main class="container">
+    <div class="p-5 mb-4 bg-white rounded-3 shadow-sm text-center">
+        <h1 class="display-6 fw-bold">Perpustakaan Universitas</h1>
+        <p class="lead text-muted">Cari buku, ajukan peminjaman, dan pantau riwayat serta denda Anda secara online.</p>
+        <a class="btn btn-primary btn-lg" th:href="@{/login}">Masuk ke Sistem</a>
+    </div>
+    <div class="row g-3 text-center">
+        <div class="col-md-4"><div class="card h-100"><div class="card-body">
+            <h5>Cari Buku</h5><p class="text-muted mb-0">Telusuri katalog berdasarkan judul, penulis, atau kategori.</p>
+        </div></div></div>
+        <div class="col-md-4"><div class="card h-100"><div class="card-body">
+            <h5>Ajukan Peminjaman</h5><p class="text-muted mb-0">Ajukan buku dari rumah, lalu ambil di perpustakaan setelah disetujui.</p>
+        </div></div></div>
+        <div class="col-md-4"><div class="card h-100"><div class="card-body">
+            <h5>Pantau Denda</h5><p class="text-muted mb-0">Lihat jatuh tempo, riwayat, dan status denda kapan saja.</p>
+        </div></div></div>
+    </div>
+    <p class="text-center text-muted mt-4">Belum punya akun? Hubungi petugas perpustakaan untuk didaftarkan sebagai anggota.</p>
+</main>
+<footer th:replace="~{fragments/layout :: footer}"></footer>
+<th:block th:replace="~{fragments/layout :: skrip}"></th:block>
+</body>
+</html>

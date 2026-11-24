@@ -1,0 +1,7 @@
+body { background-color: #f5f7fa; }
+.navbar-brand { font-weight: 700; letter-spacing: .3px; }
+.kartu-ringkas .angka { font-size: 2rem; font-weight: 700; line-height: 1.1; }
+.sampul { height: 180px; width: 100%; object-fit: cover; background: #e9ecef; }
+.sampul-kosong { display: flex; align-items: center; justify-content: center; color: #6c757d; font-size: .85rem; }
+.tabel-aksi form { display: inline-block; }
+footer { color: #6c757d; font-size: .85rem; }
