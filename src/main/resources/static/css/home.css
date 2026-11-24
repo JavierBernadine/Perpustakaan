@@ -253,4 +253,45 @@ body {
   .beranda-perpustakaan .pemisah {
     display: none;
   }
+
+
+.landing-body {
+    min-height: 100vh;
+    margin: 0;
+
+    background-image:
+        linear-gradient(
+            rgba(0, 0, 0, 0.45),
+            rgba(0, 0, 0, 0.55)
+        ),
+        url('/img/beranda-bg.png');
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.landing-header {
+    position: relative;
+    z-index: 1;
+}
+
+/* Hero */
+.landing-hero {
+    position: relative;
+    z-index: 1;
+}
+
+/* Footer */
+.landing-features-row {
+    position: relative;
+    z-index: 1;
+}
+
 }
