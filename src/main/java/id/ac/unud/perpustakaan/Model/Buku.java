@@ -58,7 +58,6 @@ public class Buku {
      }
     
     
-
     public String getKodeBuku() {
          return kodeBuku; 
         }
