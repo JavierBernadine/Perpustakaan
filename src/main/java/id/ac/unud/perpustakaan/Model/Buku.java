@@ -6,7 +6,6 @@ import jakarta.validation.constraints.*;
 @Entity
 @Table(name = "buku")
 public class Buku {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -53,83 +52,43 @@ public class Buku {
     @Size(max = 255, message = "URL sampul maksimal 255 karakter")
     private String sampul;
 
-    public Long getId() { 
-        return id;
-     }
-    
-    
+    public Long getId() {return id;}
 
-    public String getKodeBuku() {
-         return kodeBuku; 
-        }
-    
+    public String getKodeBuku() {return kodeBuku;}
 
-    public String getJudul() {
-         return judul; 
-        }
-  
+    public String getJudul() {return judul;}
 
-    public String getPenulis() {
-         return penulis; }
+    public String getPenulis() {return penulis; }
 
-    public String getPenerbit() { 
-        return penerbit;  }
-    
+    public String getPenerbit() {return penerbit;  }
 
-    public Integer getTahunTerbit() {
-         return tahunTerbit;
-         }
-    
+    public Integer getTahunTerbit() {return tahunTerbit;}
 
-    public String getKategori() {
-         return kategori; 
-        }
-    
+    public String getKategori() {return kategori;}
 
-    public String getSinopsis() {
-         return sinopsis; 
-        }
-    
+    public String getSinopsis() {return sinopsis;}
 
+    public Integer getStok() {return stok;}
 
-    public Integer getStok() {
-         return stok;
+    public String getSampul() {return sampul;}
 
-     }
-   
+    public void setId(Long id) {this.id = id; }
 
-    public String getSampul() {
-         return sampul; 
-        }
-    
+    public void setKodeBuku(String kodeBuku) {this.kodeBuku = kodeBuku; }
 
-    public void setId(Long id) { 
-        this.id = id; }
+    public void setJudul(String judul) {this.judul = judul; }
 
-    public void setKodeBuku(String kodeBuku) { 
-        this.kodeBuku = kodeBuku; }
+    public void setPenulis(String penulis) {this.penulis = penulis; }
 
-    public void setJudul(String judul) {
-         this.judul = judul; }
+    public void setPenerbit(String penerbit) {this.penerbit = penerbit; }
 
-    public void setPenulis(String penulis) { 
-        this.penulis = penulis; }
+    public void setTahunTerbit(Integer tahunTerbit) {this.tahunTerbit = tahunTerbit; }
 
-    public void setPenerbit(String penerbit) { 
-        this.penerbit = penerbit; }
+    public void setKategori(String kategori) {this.kategori = kategori; }
 
-    public void setTahunTerbit(Integer tahunTerbit) {
-         this.tahunTerbit = tahunTerbit; }
+    public void setSampul(String sampul) {this.sampul = sampul; }
 
-    public void setKategori(String kategori) { 
-        this.kategori = kategori; }
-
-    public void setSampul(String sampul) { 
-        this.sampul = sampul; }
-
-    public void setStok(Integer stok) { 
-        this.stok = stok; }
+    public void setStok(Integer stok) {this.stok = stok; }
         
-    public void setSinopsis(String sinopsis) {
-         this.sinopsis = sinopsis; }
+    public void setSinopsis(String sinopsis) {this.sinopsis = sinopsis; }
 }
