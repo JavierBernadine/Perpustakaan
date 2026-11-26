@@ -1,42 +1,75 @@
 package id.ac.unud.perpustakaan.Model;
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 public class Denda {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private long peminjaman_id;
-    private String hari_terlambat;
-    private double nominal;
-    private StatusDenda status;
-    private String tanggal_bayar;
 
-    public long getId() {return id;}
+    
+    @OneToOne(optional = false)
+    @JoinColumn (name = "peminjaman_id", nullable = false, unique = true)
+    private Peminjaman peminjaman;
 
-    public void setId(long id) {this.id = id;}
+    @Column (name = "hari_terlambat", nullable = false)
+    private int hariTerlambat;
 
-    public long getPeminjaman_id() {return peminjaman_id;}
+    @Column(nullable = false)
+    private long nominal;
 
-    public void setPeminjaman_id(long peminjaman_id) {this.peminjaman_id = peminjaman_id;}
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false, length = 15)
+    private StatusDenda status = StatusDenda.BELUM;
 
-    public String getHari_terlambat() {return hari_terlambat;}
+    @Column (name = "tangga_bayar")
+    private LocalDate tanggalBayar;
 
-    public void setHari_terlambat(String hari_terlambat) {this.hari_terlambat = hari_terlambat;}
+    public long getId() {
+        return id;
+    }
 
-    public double getNominal() {return nominal;}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-    public void setNominal(double nominal) {this.nominal = nominal;}
+    public Peminjaman getPeminjaman() {
+        return peminjaman;
+    }
 
-    public StatusDenda getStatus() {return status;}
+    public void setPeminjaman(Peminjaman peminjaman) {
+        this.peminjaman = peminjaman;
+    }
 
-    public void setStatus(StatusDenda status) {this.status = status;}
+    public int getHariTerlambat() {
+        return hariTerlambat;
+    }
 
-    public String getTanggal_bayar() {return tanggal_bayar;}
+    public void setHariTerlambat(int hariTerlambat) {
+        this.hariTerlambat = hariTerlambat;}
 
-    public void setTanggal_bayar(String tanggal_bayar) {this.tanggal_bayar = tanggal_bayar;}
+    public long getNominal() {
+        return nominal;
+    }
+
+    public StatusDenda getStatus() {
+        return status;
+    }
+
+    public LocalDate getTanggalBayar() {
+        return tanggalBayar;
+    }
+
+    public void setNominal(long nominal) {
+        this.nominal = nominal;
+    }
+
+    public void setStatus(StatusDenda status) {
+        this.status = status;}
+
+    public void setTanggalBayar(LocalDate tanggalBayar) {
+        this.tanggalBayar = tanggalBayar;
+    }
+
 }

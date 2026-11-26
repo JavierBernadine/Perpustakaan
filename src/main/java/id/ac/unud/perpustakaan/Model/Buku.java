@@ -1,94 +1,135 @@
 package id.ac.unud.perpustakaan.Model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 
 @Entity
+@Table(name = "buku")
 public class Buku {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-    private String kode_buku;
+    private Long id;
+
+    @NotBlank(message = "Kode buku wajib diisi")
+    @Size(max = 20, message = "Kode buku maksimal 20 karakter")
+    @Column(name = "kode_buku", nullable = false, unique = true, length = 20)
+    private String kodeBuku;
+
+    @NotBlank(message = "Judul wajib diisi")
+    @Size(max = 200, message = "Judul maksimal 200 karakter")
+    @Column(nullable = false, length = 200)
     private String judul;
+
+    @NotBlank(message = "Penulis wajib diisi")
+    @Size(max = 100, message = "Penulis maksimal 100 karakter")
+    @Column(nullable = false, length = 100)
     private String penulis;
+
+    @Size(max = 100, message = "Penerbit maksimal 100 karakter")
+    @Column(length = 100)
     private String penerbit;
-    private String tahun_terbit;
+
+    @Min(value = 1000, message = "Tahun terbit tidak valid")
+    @Max(value = 2100, message = "Tahun terbit tidak valid")
+    @Column(name = "tahun_terbit")
+    private Integer tahunTerbit;
+
+    @NotBlank(message = "Kategori wajib diisi")
+    @Size(max = 50, message = "Kategori maksimal 50 karakter")
+    @Column(nullable = false, length = 50)
     private String kategori;
+
+    @Size(max = 2000, message = "Sinopsis maksimal 2000 karakter")
+    @Column(length = 2000)
     private String sinopsis;
-    private int stok;
 
-    public long getId() {
+    @NotNull(message = "Stok wajib diisi")
+    @Min(value = 0, message = "Stok tidak boleh negatif")
+    @Column(nullable = false)
+    private Integer stok;
+
+
+    @Size(max = 255, message = "URL sampul maksimal 255 karakter")
+    private String sampul;
+
+    public Long getId() { 
         return id;
-    }
+     }
+    
+    
 
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getKode_buku() {
-        return kode_buku;
-    }
-
-    public void setKode_buku(String kode_buku) {
-        this.kode_buku = kode_buku;
-    }
+    public String getKodeBuku() {
+         return kodeBuku; 
+        }
+    
 
     public String getJudul() {
-        return judul;
-    }
-
-    public void setJudul(String judul) {
-        this.judul = judul;
-    }
+         return judul; 
+        }
+  
 
     public String getPenulis() {
-        return penulis;
-    }
+         return penulis; }
 
-    public void setPenulis(String penulis) {
-        this.penulis = penulis;
-    }
+    public String getPenerbit() { 
+        return penerbit;  }
+    
 
-    public String getPenerbit() {
-        return penerbit;
-    }
-
-    public void setPenerbit(String penerbit) {
-        this.penerbit = penerbit;
-    }
-
-    public String getTahun_terbit() {
-        return tahun_terbit;
-    }
-
-    public void setTahun_terbit(String tahun_terbit) {
-        this.tahun_terbit = tahun_terbit;
-    }
+    public Integer getTahunTerbit() {
+         return tahunTerbit;
+         }
+    
 
     public String getKategori() {
-        return kategori;
-    }
-
-    public void setKategori(String kategori) {
-        this.kategori = kategori;
-    }
+         return kategori; 
+        }
+    
 
     public String getSinopsis() {
-        return sinopsis;
-    }
+         return sinopsis; 
+        }
+    
 
+
+    public Integer getStok() {
+         return stok;
+
+     }
+   
+
+    public String getSampul() {
+         return sampul; 
+        }
+    
+
+    public void setId(Long id) { 
+        this.id = id; }
+
+    public void setKodeBuku(String kodeBuku) { 
+        this.kodeBuku = kodeBuku; }
+
+    public void setJudul(String judul) {
+         this.judul = judul; }
+
+    public void setPenulis(String penulis) { 
+        this.penulis = penulis; }
+
+    public void setPenerbit(String penerbit) { 
+        this.penerbit = penerbit; }
+
+    public void setTahunTerbit(Integer tahunTerbit) {
+         this.tahunTerbit = tahunTerbit; }
+
+    public void setKategori(String kategori) { 
+        this.kategori = kategori; }
+
+    public void setSampul(String sampul) { 
+        this.sampul = sampul; }
+
+    public void setStok(Integer stok) { 
+        this.stok = stok; }
+        
     public void setSinopsis(String sinopsis) {
-        this.sinopsis = sinopsis;
-    }
-
-    public int getStok() {
-        return stok;
-    }
-
-    public void setStok(int stok) {
-        this.stok = stok;
-    }
+         this.sinopsis = sinopsis; }
 }
-
