@@ -10,7 +10,7 @@ public class Buku {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String kodeBuku;
+    private String kode_buku;
     private String judul;
     private String penulis;
     private String penerbit;
@@ -27,12 +27,12 @@ public class Buku {
         this.id = id;
     }
 
-    public String getKodeBuku() {
-        return kodeBuku;
+    public String getKode_buku() {
+        return kode_buku;
     }
 
-    public void setKodeBuku(String kodeBuku) {
-        this.kodeBuku = kodeBuku;
+    public void setKode_buku(String kode_buku) {
+        this.kode_buku = kode_buku;
     }
 
     public String getJudul() {

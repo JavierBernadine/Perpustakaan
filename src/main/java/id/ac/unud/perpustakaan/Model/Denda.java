@@ -10,23 +10,23 @@ public class Denda {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private long peminjamanId;
-    private String hariTerlambat;
+    private long peminjaman_id;
+    private String hari_terlambat;
     private double nominal;
     private StatusDenda status;
-    private String tanggalBayar;
+    private String tanggal_bayar;
 
     public long getId() {return id;}
 
     public void setId(long id) {this.id = id;}
 
-    public long getPeminjamanId() {return peminjamanId;}
+    public long getPeminjaman_id() {return peminjaman_id;}
 
-    public void setPeminjamanId(long peminjamanId) {this.peminjamanId = peminjamanId;}
+    public void setPeminjaman_id(long peminjaman_id) {this.peminjaman_id = peminjaman_id;}
 
-    public String getHariTerlambat() {return hariTerlambat;}
+    public String getHari_terlambat() {return hari_terlambat;}
 
-    public void setHariTerlambat(String hariTerlambat) {this.hariTerlambat = hariTerlambat;}
+    public void setHari_terlambat(String hari_terlambat) {this.hari_terlambat = hari_terlambat;}
 
     public double getNominal() {return nominal;}
 
@@ -36,7 +36,7 @@ public class Denda {
 
     public void setStatus(StatusDenda status) {this.status = status;}
 
-    public String getTanggalBayar() {return tanggalBayar;}
+    public String getTanggal_bayar() {return tanggal_bayar;}
 
-    public void setTanggalBayar(String tanggalBayar) {this.tanggalBayar = tanggalBayar;}
+    public void setTanggal_bayar(String tanggal_bayar) {this.tanggal_bayar = tanggal_bayar;}
 }

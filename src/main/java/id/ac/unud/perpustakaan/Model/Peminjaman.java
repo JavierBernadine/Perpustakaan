@@ -10,41 +10,41 @@ public class Peminjaman {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private long penggunaId;
-    private long bukuId;
-    private String tanggalPengajuan;
-    private String tanggalPinjam;
-    private String tanggalJatuhTempo;
-    private String tanggalKembali;
+    private long pengguna_id;
+    private long buku_id;
+    private String tanggal_pengajuan;
+    private String tanggal_pinjam;
+    private String tanggal_jatuh_tempo;
+    private String tanggal_kembali;
     private StatusPeminjaman status;
 
     public long getId() {return id;}
 
     public void setId(long id) {this.id = id;}
 
-    public long getPenggunaId() {return penggunaId;}
+    public long getPengguna_id() {return pengguna_id;}
 
-    public void setPenggunaId(long penggunaId) {this.penggunaId = penggunaId;}
+    public void setPengguna_id(long pengguna_id) {this.pengguna_id = pengguna_id;}
 
-    public long getBukuId() {return bukuId;}
+    public long getBuku_id() {return buku_id;}
 
-    public void setBukuId(long bukuId) {this.bukuId = bukuId;}
+    public void setBuku_id(long buku_id) {this.buku_id = buku_id;}
 
-    public String getTanggalPengajuan() {return tanggalPengajuan;}
+    public String getTanggal_pengajuan() {return tanggal_pengajuan;}
 
-    public void setTanggalPengajuan(String tanggalPengajuan) {this.tanggalPengajuan = tanggalPengajuan;}
+    public void setTanggal_pengajuan(String tanggal_pengajuan) {this.tanggal_pengajuan = tanggal_pengajuan;}
 
-    public String getTanggalPinjam() {return tanggalPinjam;}
+    public String getTanggal_pinjam() {return tanggal_pinjam;}
 
-    public void setTanggalPinjam(String tanggalPinjam) {this.tanggalPinjam = tanggalPinjam;}
+    public void setTanggal_pinjam(String tanggal_pinjam) {this.tanggal_pinjam = tanggal_pinjam;}
 
-    public String getTanggalJatuhTempo() {return tanggalJatuhTempo;}
+    public String getTanggal_jatuh_tempo() {return tanggal_jatuh_tempo;}
 
-    public void setTanggalJatuhTempo(String tanggalJatuhTempo) {this.tanggalJatuhTempo = tanggalJatuhTempo;}
+    public void setTanggal_jatuh_tempo(String tanggal_jatuh_tempo) {this.tanggal_jatuh_tempo = tanggal_jatuh_tempo;}
 
-    public String getTanggalKembali() {return tanggalKembali;}
+    public String getTanggal_kembali() {return tanggal_kembali;}
 
-    public void setTanggalKembali(String tanggalKembali) {this.tanggalKembali = tanggalKembali;}
+    public void setTanggal_kembali(String tanggal_kembali) {this.tanggal_kembali = tanggal_kembali;}
 
     public StatusPeminjaman getStatus() {return status;}
 
