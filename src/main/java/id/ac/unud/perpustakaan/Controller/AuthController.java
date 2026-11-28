@@ -1,9 +1,10 @@
 package id.ac.unud.perpustakaan.Controller;
 
-import id.ac.unud.perpustakaan.Util.Keamanan;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import id.ac.unud.perpustakaan.Util.Keamanan;
  
 @Controller
 public class AuthController {
